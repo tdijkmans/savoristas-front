@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { login } from "../../store/user/actions";
 
 import {
   FormControl,
@@ -12,20 +15,14 @@ import {
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   function submitForm(event) {
-    console.log(password, email);
     event.preventDefault();
-
+    dispatch(login(email, password));
     setEmail("");
     setPassword("");
   }
-
-  // useEffect(() => {
-  //   if (token !== null) {
-  //     history.push("/");
-  //   }
-  // }, [token, history]);
 
   return (
     <Flex minHeight="50vh" align="center" justifyContent="center">
@@ -36,6 +33,7 @@ export default function Login() {
             <Input
               value={email}
               type="email"
+              autocomplete="username"
               placeholder="Enter your email address"
               onChange={(event) => setEmail(event.target.value)}
             />
@@ -46,13 +44,14 @@ export default function Login() {
             <Input
               value={password}
               type="password"
+              autocomplete="current-password"
               placeholder="Enter your password"
               onChange={(event) => setPassword(event.target.value)}
             />
           </FormControl>
 
           <Flex justifyContent="center" mt={5}>
-            <Button variantColor="red" onClick={submitForm}>
+            <Button type="submit" variantColor="red" onClick={submitForm}>
               Log in
             </Button>
           </Flex>

@@ -30,7 +30,7 @@ export default function Navigation() {
         <Link m={20}>+ food palette</Link>
         <Link m={20}>+ recipe</Link>
       </Box>
-      <Box> {loginLogoutControls}</Box>
+      <Box>{loginLogoutControls}</Box>
     </Flex>
   );
 }

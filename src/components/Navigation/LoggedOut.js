@@ -1,12 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { Box, Link } from "@chakra-ui/core";
 
 export default function LoggedOut() {
   return (
-    <>
-      <NavLink to="/login" linkText="Login">
+    <Box>
+      <Link as={NavLink} to="/login">
         Login
-      </NavLink>
-    </>
+      </Link>
+
+      <Link as={NavLink} to="/signup" m={20}>
+        Sign up
+      </Link>
+    </Box>
   );
 }

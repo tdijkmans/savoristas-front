@@ -65,3 +65,23 @@ export const getUserWithStoredToken = () => {
     }
   };
 };
+
+export const signUp = (name, email, password) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.post(`${apiUrl}/signup`, {
+        name,
+        email,
+        password,
+      });
+
+      dispatch(loginSuccess(response.data));
+    } catch (error) {
+      if (error.response) {
+        // console.log(error.response.data.message);
+      } else {
+        // console.log(error.message);
+      }
+    }
+  };
+};

@@ -7,6 +7,7 @@ import { Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Login from "./pages/Login/index";
 import Signup from "./pages/Signup";
+import Homepage from "./pages/Homepage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <CSSReset />
       <Navigation />
       <Switch>
+        <Route exact path="/" component={Homepage} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
       </Switch>

@@ -11,25 +11,29 @@ import RecipeBrief from "../../components/RecipeBrief";
 import Palette from "../../components/Palette";
 
 import { fetchPalettes } from "../../store/palettes/actions";
+import { fetchRecipes } from "../../store/recipes/actions";
+
 import { selectPalettes } from "../../store/palettes/selectors";
+import { selectRecipes } from "../../store/recipes/selectors";
 
 export default function Homepage() {
   const dispatch = useDispatch();
   const palettes = useSelector(selectPalettes);
+  const recipes = useSelector(selectRecipes);
 
   useEffect(() => {
     dispatch(fetchPalettes());
+    dispatch(fetchRecipes());
   }, [dispatch]);
+
+  const recipeList =
+    recipes.length &&
+    recipes.map((recipe) => <RecipeBrief key={recipe.id} recipe={recipe} />);
 
   const paletteList =
     palettes.length &&
-    palettes.map((p) => (
-      <Palette
-        key={p.id}
-        name={p.name}
-        ingredients={p.ingredients}
-        description={p.description}
-      />
+    palettes.map((palette) => (
+      <Palette key={palette.id} foodPalette={palette} />
     ));
 
   return (
@@ -42,7 +46,7 @@ export default function Homepage() {
       <Text p={2} fontSize="4xl">
         The latest Recipes
       </Text>
-      <RecipeBrief />
+      <Grid templateColumns="repeat(4, 1fr)">{recipeList}</Grid>
     </Box>
   );
 }

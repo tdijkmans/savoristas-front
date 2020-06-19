@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box } from "@chakra-ui/core";
+import { Box, Divider } from "@chakra-ui/core";
 import { Grid } from "@chakra-ui/core";
 
 export default function Palette({ foodPalette }) {
@@ -17,6 +17,8 @@ export default function Palette({ foodPalette }) {
         lineHeight="200px"
         p={2}
         textAlign="center"
+        color="white"
+        textShadow="-1px 1px 3px #000000"
       >
         {i.name}
       </Box>
@@ -26,12 +28,19 @@ export default function Palette({ foodPalette }) {
   return (
     <Box p={3} Width="20%">
       {
-        <Box h={256} borderWidth="1px" boxShadow="md">
+        <Box
+          h={256}
+          borderWidth="1px"
+          boxShadow="md"
+          bg="white"
+          borderRadius="4px"
+        >
           <Grid templateColumns={columns}>{palette}</Grid>
-          <Box pt={3} px={3} fontWeight="semibold">
+          <Box pt={3} px={3} fontWeight="semibold" color="green.600">
             {foodPalette.name}
+            <Divider />
           </Box>
-          <Box pr={3} pl={3}>
+          <Box pr={3} pl={3} color="#5a6268">
             {foodPalette.description}
           </Box>
         </Box>

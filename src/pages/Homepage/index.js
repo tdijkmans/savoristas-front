@@ -6,6 +6,7 @@ import { Divider } from "@chakra-ui/core";
 import { Box } from "@chakra-ui/core";
 import { Grid } from "@chakra-ui/core";
 import { Text } from "@chakra-ui/core";
+import { CircularProgress } from "@chakra-ui/core";
 
 import RecipeBrief from "../../components/RecipeBrief";
 import Palette from "../../components/Palette";
@@ -26,27 +27,34 @@ export default function Homepage() {
     dispatch(fetchRecipes());
   }, [dispatch]);
 
-  const recipeList =
-    recipes.length &&
-    recipes.map((recipe) => <RecipeBrief key={recipe.id} recipe={recipe} />);
+  const loader = (
+    <CircularProgress isIndeterminate color="green"></CircularProgress>
+  );
 
-  const paletteList =
-    palettes.length &&
-    palettes.map((palette) => (
-      <Palette key={palette.id} foodPalette={palette} />
-    ));
+  const recipeList = recipes.length
+    ? recipes.map((recipe) => <RecipeBrief key={recipe.id} recipe={recipe} />)
+    : loader;
+
+  const paletteList = palettes.length
+    ? palettes.map((palette) => (
+        <Palette key={palette.id} foodPalette={palette} />
+      ))
+    : loader;
 
   return (
-    <Box width="80%" marginLeft="auto" marginRight="auto">
-      <Text p={2} fontSize="4xl">
-        The latest Food Palettes
-      </Text>
-      <Grid templateColumns="repeat(4, 1fr)">{paletteList}</Grid>
-      <Divider />
-      <Text p={2} fontSize="4xl">
-        The latest Recipes
-      </Text>
-      <Grid templateColumns="repeat(4, 1fr)">{recipeList}</Grid>
+    <Box bg="#F7F3E7">
+      <Box width="80%" marginLeft="auto" marginRight="auto">
+        <Text p={2} fontSize="4xl">
+          The latest Food Palettes
+        </Text>
+
+        <Grid templateColumns="repeat(4, 1fr)">{paletteList}</Grid>
+        <Divider />
+        <Text p={2} fontSize="4xl">
+          The latest Recipes
+        </Text>
+        <Grid templateColumns="repeat(4, 1fr)">{recipeList}</Grid>
+      </Box>
     </Box>
   );
 }

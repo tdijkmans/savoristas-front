@@ -10,7 +10,7 @@ import { CircularProgress } from "@chakra-ui/core";
 
 import RecipeBrief from "../../components/RecipeBrief";
 import Palette from "../../components/Palette";
-import CreatePaletteButton from "../../components/CreateButton";
+import CreatePaletteButton from "../../components/CreatePaletteButton";
 
 import { fetchPalettes } from "../../store/palettes/actions";
 import { fetchRecipes } from "../../store/recipes/actions";

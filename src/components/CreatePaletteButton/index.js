@@ -5,7 +5,7 @@ import { IconButton } from "@chakra-ui/core";
 
 export default function CreatePaletteButton() {
   return (
-    <Box p={3} Width="20%">
+    <Box as="a" p={3} Width="20%" href="/create-palette">
       {
         <Box
           h={256}

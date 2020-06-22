@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Link, Box } from "@chakra-ui/core";
+import { Flex, Box } from "@chakra-ui/core";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -12,6 +12,16 @@ export default function Navigation() {
   const token = useSelector(selectToken);
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
+  const postControls = token ? (
+    <>
+      <NavLink pl={20} m={20} to="/create-palette">
+        + Post een palet
+      </NavLink>
+      <NavLink to="/" m={20}>
+        + Post een recept
+      </NavLink>{" "}
+    </>
+  ) : null;
 
   return (
     <Flex
@@ -22,14 +32,12 @@ export default function Navigation() {
       py={4}
       justifyContent="space-between"
     >
-      <Box>
-        <NavLink to="/" m={20}>
+      <Flex w={500} justifyContent="space-between">
+        <NavLink w={20} to="/" m={20}>
           Home
         </NavLink>
-
-        <Link m={20}>+ food palette</Link>
-        <Link m={20}>+ recipe</Link>
-      </Box>
+        {postControls}
+      </Flex>
       <Box>{loginLogoutControls}</Box>
     </Flex>
   );

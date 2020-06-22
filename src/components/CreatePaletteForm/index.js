@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import InputColor from "react-input-color";
+import { postPalette } from "../../store/palettes/actions";
+import { useHistory } from "react-router-dom";
 
 import {
   FormControl,
@@ -14,14 +16,24 @@ import {
 } from "@chakra-ui/core";
 
 import Palette from "../Palette";
+import { useDispatch } from "react-redux";
 
 export default function CreatePaletteForm() {
-  const [name, setName] = useState("In De Winter");
+  const initialPalette = {
+    name: "In De Winter",
+    description: "Voor als het buiten vriest.",
+    ingredients: [
+      { name: "Tijm", hexColor: "#43A047" },
+      { name: "Honing", hexColor: "#FDD835" },
+    ],
+  };
+
+  const [name, setName] = useState(initialPalette.name);
   function handleChangeName(event) {
     setName(event.target.value);
   }
 
-  const [description, setDescription] = useState("Voor als het buiten vriest.");
+  const [description, setDescription] = useState(initialPalette.description);
   function handleChangeDescription(event) {
     setDescription(event.target.value);
   }
@@ -32,10 +44,9 @@ export default function CreatePaletteForm() {
     setIngredient(event.target.value);
   }
 
-  const [ingredientList, setIngredientList] = useState([
-    { name: "Tijm", hexColor: "#43A047" },
-    { name: "Honing", hexColor: "#FDD835" },
-  ]);
+  const [ingredientList, setIngredientList] = useState(
+    initialPalette.ingredients
+  );
 
   function listThisIngredient(event) {
     setIngredientList([
@@ -52,6 +63,17 @@ export default function CreatePaletteForm() {
       })
     );
   }
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  function submitPalette(event) {
+    event.preventDefault();
+    dispatch(postPalette(name, description, ingredientList));
+    setName(initialPalette.name);
+    setDescription(initialPalette.description);
+    setIngredientList(initialPalette.ingredients);
+    history.push("/");
+  }
 
   // THIS REFORMATS DATA TO SEND TO PALETTE RENDERING FOR PREVIEW
   const convertedForPreview = ingredientList.map((i) => ({
@@ -64,24 +86,18 @@ export default function CreatePaletteForm() {
     ingredients: convertedForPreview,
   };
 
-  const listForm = ingredientList.map((i, index) => (
-    <FormControl key={i.index} p={1}>
+  const listedIngredients = ingredientList.map((i, index) => (
+    <FormControl key={i.name} p={1} isReadOnly>
       <Grid templateColumns="1fr 4fr 1fr">
         <Box display="flex" alignItems="center" justifyContent="center">
-          <InputColor
-            key={i.name}
-            initialValue={i.hexColor}
-            onChange={setColor}
-            name="hexColor"
-          />
+          <InputColor key={i.name} initialValue={i.hexColor} name="hexColor" />
         </Box>
         <Input
           key={i.name}
           id={i.name}
           name="name"
-          placeholder="Ingredient"
+          // placeholder="Ingredient"
           value={i.name}
-          onChange={handleIngredient}
         />
         <IconButton
           onClick={() => removeThisIngredient(i.name)}
@@ -97,7 +113,7 @@ export default function CreatePaletteForm() {
         <Palette foodPalette={foodPalette} pr={10} />
       </Box>
       <Divider p={5} />
-      <FormControl isRequired>
+      <FormControl isRequired type="submit">
         <FormLabel htmlFor="name">Naam </FormLabel>
         <Input
           id="name"
@@ -116,7 +132,7 @@ export default function CreatePaletteForm() {
         />
 
         <Divider p={3} />
-        {listForm}
+        {listedIngredients}
 
         <FormControl p={1}>
           <Grid templateColumns="1fr 4fr 1fr">
@@ -141,7 +157,7 @@ export default function CreatePaletteForm() {
         <Divider p={3} />
 
         <Flex justifyContent="center" mt={5}>
-          <Button type="submit" variantColor="teal">
+          <Button type="submit" variantColor="teal" onClick={submitPalette}>
             Post dit palet!
           </Button>
         </Flex>

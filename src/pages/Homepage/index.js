@@ -11,6 +11,7 @@ import { CircularProgress } from "@chakra-ui/core";
 import RecipeBrief from "../../components/RecipeBrief";
 import Palette from "../../components/Palette";
 import CreatePaletteButton from "../../components/CreatePaletteButton";
+import CreateRecipeButton from "../../components/CreateRecipeButton";
 
 import { fetchPalettes } from "../../store/palettes/actions";
 import { fetchRecipes } from "../../store/recipes/actions";
@@ -57,7 +58,10 @@ export default function Homepage() {
         <Text p={2} fontSize="4xl">
           The latest Recipes
         </Text>
-        <Grid templateColumns="repeat(4, 1fr)">{recipeList}</Grid>
+        <Grid templateColumns="repeat(4, 1fr)">
+          {recipeList}
+          <CreateRecipeButton />
+        </Grid>
       </Box>
     </Box>
   );

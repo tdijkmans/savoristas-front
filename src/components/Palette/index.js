@@ -1,9 +1,13 @@
 import React from "react";
 
 import { Box, Divider } from "@chakra-ui/core";
-import { Grid } from "@chakra-ui/core";
+import { Grid, Text } from "@chakra-ui/core";
 
 export default function Palette({ foodPalette }) {
+  function filterRecipes(id) {
+    console.log(id);
+  }
+
   const coloredIngredients = foodPalette.ingredients.map((i) => ({
     name: i.name,
     hexColor: i.paletteIngredients.hexColor,
@@ -43,6 +47,9 @@ export default function Palette({ foodPalette }) {
           <Box pr={3} pl={3} color="#5a6268">
             {foodPalette.description}
           </Box>
+          <Text onClick={() => filterRecipes(foodPalette.id)} as="button">
+            Recepten
+          </Text>
         </Box>
       }
     </Box>

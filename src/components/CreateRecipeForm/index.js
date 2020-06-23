@@ -74,15 +74,15 @@ export default function CreateRecipeForm() {
     setCookTime(event.target.value);
   }
 
-  const [ingredientName, setIngredientName] = useState("");
-  function handleChangeIngredientName(event) {
-    setIngredientName(event.target.value);
-  }
+  // const [ingredientName, setIngredientName] = useState("");
+  // function handleChangeIngredientName(event) {
+  //   setIngredientName(event.target.value);
+  // }
 
-  const [ingredientQuantity, setIngredientQuantity] = useState("");
-  function handleChangeQuantity(event) {
-    setIngredientQuantity(event.target.value);
-  }
+  // const [ingredientQuantity, setIngredientQuantity] = useState("");
+  // function handleChangeQuantity(event) {
+  //   setIngredientQuantity(event.target.value);
+  // }
 
   const [recipeIngredientList, setRecipeIngredientList] = useState(
     initialRecipe.recipeIngredients
@@ -96,16 +96,14 @@ export default function CreateRecipeForm() {
     );
   }
 
-  function listThisIngredient(event) {
+  function listThisIngredient(q, n) {
     setRecipeIngredientList([
       ...recipeIngredientList,
       {
-        ingredientQuantity: ingredientQuantity,
-        name: ingredientName,
+        ingredientQuantity: q,
+        name: n,
       },
     ]);
-    setIngredientName("");
-    setIngredientQuantity("");
   }
 
   const history = useHistory();
@@ -159,13 +157,7 @@ export default function CreateRecipeForm() {
               recipeIngredientList={recipeIngredientList}
               removeThisIngredient={removeThisIngredient}
             />
-            <ListIngredientForm
-              handleChangeQuantity={handleChangeQuantity}
-              handleChangeIngredientName={handleChangeIngredientName}
-              listThisIngredient={listThisIngredient}
-              ingredientQuantity={ingredientQuantity}
-              ingredientName={ingredientQuantity}
-            />
+            <ListIngredientForm listThisIngredient={listThisIngredient} />
 
             <Textarea
               h={500}

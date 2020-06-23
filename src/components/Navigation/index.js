@@ -17,7 +17,7 @@ export default function Navigation() {
       <NavLink pl={20} m={20} to="/create-palette">
         + Post een palet
       </NavLink>
-      <NavLink to="/" m={20}>
+      <NavLink to="/create-recipe" m={20}>
         + Post een recept
       </NavLink>{" "}
     </>

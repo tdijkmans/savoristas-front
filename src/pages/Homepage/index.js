@@ -18,11 +18,13 @@ import { fetchRecipes } from "../../store/recipes/actions";
 
 import { selectPalettes } from "../../store/palettes/selectors";
 import { selectRecipes } from "../../store/recipes/selectors";
+import { selectFilteredRecipes } from "../../store/filteredrecipes/selectors";
 
 export default function Homepage() {
   const dispatch = useDispatch();
   const palettes = useSelector(selectPalettes);
   const recipes = useSelector(selectRecipes);
+  const filteredRecipes = useSelector(selectFilteredRecipes);
 
   useEffect(() => {
     dispatch(fetchPalettes());
@@ -33,9 +35,15 @@ export default function Homepage() {
     <CircularProgress isIndeterminate color="green"></CircularProgress>
   );
 
-  const recipeList = recipes.length
+  const allRecipesList = recipes.length
     ? recipes.map((recipe) => <RecipeBrief key={recipe.id} recipe={recipe} />)
     : loader;
+
+  const recipesList = filteredRecipes.length
+    ? filteredRecipes.map((recipe) => (
+        <RecipeBrief key={recipe.id} recipe={recipe} />
+      ))
+    : allRecipesList;
 
   const paletteList = palettes.length
     ? palettes.map((palette) => (
@@ -59,7 +67,7 @@ export default function Homepage() {
           The latest Recipes
         </Text>
         <Grid templateColumns="repeat(4, 1fr)">
-          {recipeList}
+          {recipesList}
           <CreateRecipeButton />
         </Grid>
       </Box>

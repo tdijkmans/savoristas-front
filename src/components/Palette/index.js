@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { Box, Divider } from "@chakra-ui/core";
-import { Grid, Text } from "@chakra-ui/core";
+import { Box, Divider, Grid } from "@chakra-ui/core";
+
+import { useDispatch } from "react-redux";
+
+import { fetchRecipesByPalette } from "../../store/filteredrecipes/actions";
+import { clearPaletteFilter } from "../../store/filteredrecipes/actions";
 
 export default function Palette({ foodPalette }) {
-  function filterRecipes(id) {
-    console.log(id);
+  const [recipeToggle, setRecipeToggle] = useState("recepten");
+  const dispatch = useDispatch();
+
+  function filterRecipes(ingredients) {
+    const ingredientList = ingredients.map((i) => i.id);
+    dispatch(fetchRecipesByPalette(ingredientList));
+  }
+
+  function clearFilter() {
+    dispatch(clearPaletteFilter());
+  }
+
+  function toggleFilter(foodPalette) {
+    if (recipeToggle === "recepten") {
+      setRecipeToggle("x recepten");
+      filterRecipes(foodPalette.ingredients);
+    } else {
+      setRecipeToggle("recepten");
+      clearFilter();
+    }
   }
 
   const coloredIngredients = foodPalette.ingredients.map((i) => ({
@@ -47,9 +69,20 @@ export default function Palette({ foodPalette }) {
           <Box pr={3} pl={3} color="#5a6268">
             {foodPalette.description}
           </Box>
-          <Text onClick={() => filterRecipes(foodPalette.id)} as="button">
-            Recepten
-          </Text>
+          <Box
+            backgroundColor="green.600"
+            borderTopRightRadius={4}
+            borderBottomRightRadius={4}
+            pr={3}
+            pl={3}
+            pb={0.5}
+            fontSize="xs"
+            color="white"
+            onClick={() => toggleFilter(foodPalette)}
+            as="button"
+          >
+            {recipeToggle}
+          </Box>
         </Box>
       }
     </Box>

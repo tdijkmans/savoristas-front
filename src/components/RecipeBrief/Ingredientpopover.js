@@ -3,7 +3,6 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-  Link,
   Text,
   List,
   ListItem,
@@ -23,13 +22,11 @@ export default function Ingredientpopover({ ingredients, id }) {
     </List>
   );
 
-  const recipeUrl = `recipe/${id}`;
   return (
     <Popover trigger="hover">
       <PopoverTrigger>
         <Text pr={2} textAlign="right" fontSize="xs" color="#5a6268">
-          <ListIcon icon="chevron-right" color="green.500" />{" "}
-          <Link href={recipeUrl}>ingrediënten</Link>
+          <ListIcon icon="chevron-right" color="green.500" /> ingrediënten
         </Text>
       </PopoverTrigger>
 

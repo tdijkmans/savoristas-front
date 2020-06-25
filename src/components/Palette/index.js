@@ -31,13 +31,14 @@ export default function Palette({ foodPalette }) {
   }
 
   const coloredIngredients = foodPalette.ingredients.map((i) => ({
+    id: i.id,
     name: i.name,
     hexColor: i.paletteIngredients.hexColor,
   }));
   const numberOfIngredients = coloredIngredients.length;
   const columns = `repeat(${numberOfIngredients}, 1fr)`;
   const palette = coloredIngredients.map((i) => (
-    <Box key={i.hexColor} w="100%" h="150px" bg={i.hexColor}>
+    <Box key={i.id} w="100%" h="150px" bg={i.hexColor}>
       <Box
         textTransform="capitalize"
         lineHeight="200px"

@@ -7,7 +7,7 @@ export default (state = initialState, action) => {
     case FETCH_PALETTES_SUCCESS:
       return [...state, ...action.payload];
     case POST_A_PALETTE_SUCCESS:
-      return [...state, ...action.payload];
+      return [...state, action.payload];
 
     default:
       return state;

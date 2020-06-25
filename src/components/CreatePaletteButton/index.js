@@ -29,7 +29,7 @@ export default function CreatePaletteButton() {
             </Box>
           </Grid>
           <Box pt={3} px={3} fontWeight="semibold" color="green.600">
-            Creëer je eigen palette!
+            Creëer je eigen palet!
             <Divider />
           </Box>
           <Box pr={3} pl={3} color="#5a6268">

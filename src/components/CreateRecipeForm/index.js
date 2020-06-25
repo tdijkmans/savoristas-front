@@ -6,10 +6,8 @@ import { postRecipe } from "../../store/recipes/actions";
 
 import {
   FormControl,
-  FormLabel,
   Box,
   Button,
-  IconButton,
   Input,
   Grid,
   Flex,
@@ -20,9 +18,8 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
   Select,
+  Divider,
 } from "@chakra-ui/core";
-
-import { IoIosTimer, IoIosPerson } from "react-icons/io";
 
 import RecipeDetailed from "../RecipeDetailed";
 import ListedIngredients from "./ListedIngredients";
@@ -31,13 +28,13 @@ import ListIngredientForm from "./ListIngredientForm";
 export default function CreateRecipeForm() {
   const initialRecipe = {
     name: "Zalmrollade met basilicum-citroenpesto",
-    description: "Zalmrollade met basilicum-citroenpesto",
+    description: "Een rollade met vis voor de verandering.",
     recipeYield: 4,
     cookTime: "PT50M",
     image:
       "https://static-images.jumbo.com/product_images/Recipe_502710-01_560x560.jpg",
     recipeInstructions:
-      "Pureer met de staafmixer de basilicum met de pijnboompitten, knoflook en olijfolie glad. Rasp het geel van de schil van de citroen. Schep de citroenrasp met de kaas door de basilicumpasta. Breng de pesto op smaak met peper. Verwarm de oven voor tot 220 ?C. Snijd de zalmfilet horizontaal open als een boek (snijd de filet dus niet helemaal door!). Vouw de zalmfilet open en bestrijk de snijvlakken met de pesto. Rol de opengeslagen zalmfilet vanaf de brede kant als een rollade op. Rol de zalmrollade vervolgens in de hamplakjes. Bind de rollade vervolgens rondom vast met keukentouw, of zet de rollade vast met cocktailprikkers. Leg de rollade in de braadslede en bestrooi met peper naar smaak. Bak de zalmrollade in de voorverwarmde oven in 20-25 min. bruin en vanbinnen rosé of naar wens gaar.",
+      "Pureer met de staafmixer de basilicum met de pijnboompitten, knoflook en olijfolie glad. Rasp het geel van de schil van de citroen. Schep de citroenrasp met de kaas door de basilicumpasta. Breng de pesto op smaak met peper. Verwarm de oven voor tot 220 C. Snijd de zalmfilet horizontaal open als een boek (snijd de filet dus niet helemaal door!). Vouw de zalmfilet open en bestrijk de snijvlakken met de pesto. Rol de opengeslagen zalmfilet vanaf de brede kant als een rollade op. Rol de zalmrollade vervolgens in de hamplakjes. Bind de rollade vervolgens rondom vast met keukentouw, of zet de rollade vast met cocktailprikkers. Leg de rollade in de braadslede en bestrooi met peper naar smaak. Bak de zalmrollade in de voorverwarmde oven in 20-25 minuten bruin en vanbinnen rosé of naar wens gaar.",
     recipeIngredients: [
       { ingredientQuantity: "2 stuks", name: "zalmfilet" },
       { ingredientQuantity: "een bosje", name: "basilicum" },
@@ -46,6 +43,11 @@ export default function CreateRecipeForm() {
       { ingredientQuantity: "een hele", name: "citroen" },
     ],
   };
+
+  const [image, setImage] = useState(initialRecipe.image);
+  function handleChangeImage(event) {
+    setImage(event.target.value);
+  }
 
   const [name, setName] = useState(initialRecipe.name);
   function handleChangeName(event) {
@@ -66,23 +68,13 @@ export default function CreateRecipeForm() {
 
   const [recipeYield, setRecipeYield] = useState(initialRecipe.recipeYield);
   function handleChangeRecipeYield(event) {
-    setRecipeYield(event.target.value);
+    setRecipeYield(event);
   }
 
   const [cookTime, setCookTime] = useState(initialRecipe.cookTime);
   function handleChangeCookTime(event) {
     setCookTime(event.target.value);
   }
-
-  // const [ingredientName, setIngredientName] = useState("");
-  // function handleChangeIngredientName(event) {
-  //   setIngredientName(event.target.value);
-  // }
-
-  // const [ingredientQuantity, setIngredientQuantity] = useState("");
-  // function handleChangeQuantity(event) {
-  //   setIngredientQuantity(event.target.value);
-  // }
 
   const [recipeIngredientList, setRecipeIngredientList] = useState(
     initialRecipe.recipeIngredients
@@ -96,20 +88,26 @@ export default function CreateRecipeForm() {
     );
   }
 
-  function listThisIngredient(q, n) {
-    setRecipeIngredientList([
-      ...recipeIngredientList,
-      {
-        ingredientQuantity: q,
-        name: n,
-      },
-    ]);
+  const [message, setMessage] = useState("");
+  function listThisIngredient(quantity, name) {
+    if (name === "") {
+      setMessage("Voer ajb een ingrediënt in.");
+    } else if (recipeIngredientList.some((i) => i.name === name) === true) {
+      setMessage("Voer ajb niet tweemaal hetzelfde ingrediënt in.");
+    } else {
+      setRecipeIngredientList([
+        ...recipeIngredientList,
+        {
+          ingredientQuantity: quantity,
+          name: name,
+        },
+      ]);
+      setMessage("");
+    }
   }
 
   const history = useHistory();
   const dispatch = useDispatch();
-
-  const image = initialRecipe.image;
 
   function submitRecipe(event) {
     event.preventDefault();
@@ -131,45 +129,67 @@ export default function CreateRecipeForm() {
     history.push("/");
   }
 
+  const previewRecipe = {
+    cookTime,
+    recipeYield,
+    name: name,
+    image,
+    description,
+    recipeIngredients: recipeIngredientList,
+    recipeInstructions: instructions,
+  };
+
   return (
     <Flex>
-      <Box w="50%">
-        <Box width="100%" marginLeft="auto" marginRight="auto">
+      <Box w="50%" p={3}>
+        <Box
+          p={2}
+          width="100%"
+          marginLeft="auto"
+          marginRight="auto"
+          background="white"
+        >
           <FormControl isRequired type="submit">
-            <FormLabel htmlFor="name">Naam </FormLabel>
             <Input
               id="name"
+              fontWeight="bold"
               placeholder="Hoe wil je het recept noemen?"
               name="name"
               value={name}
               onChange={handleChangeName}
+              borderColor="white"
             />
-            <FormLabel htmlFor="description">Beschrijving</FormLabel>
+
             <Input
               id="description"
               placeholder="Geef hier een korte beschrijving"
               name="description"
               value={description}
+              borderColor="white"
               onChange={handleChangeDescription}
             />
-
+            <Divider />
             <ListedIngredients
               recipeIngredientList={recipeIngredientList}
               removeThisIngredient={removeThisIngredient}
             />
             <ListIngredientForm listThisIngredient={listThisIngredient} />
+            <Box color="teal.500" textAlign="center" p={4}>
+              {message}
+            </Box>
 
             <Textarea
               h={500}
               placeholder="Schrijf hier je bereidingswijze."
               value={instructions}
               onChange={handleChangeInstructions}
+              borderColor="white"
             ></Textarea>
+            <Divider />
 
-            <Grid p={2} templateColumns="1fr 3fr 1fr 3fr">
-              <Box as={IoIosTimer} />
+            <Grid templateColumns="6fr 1fr 5fr">
               <Select
-                placeholder="Select option"
+                placeholder="Bereidingstijd"
                 value={cookTime}
                 onChange={handleChangeCookTime}
               >
@@ -178,12 +198,14 @@ export default function CreateRecipeForm() {
                 <option value="PT90M">60 - 90 min</option>
                 <option value="PT120M"> 90 min en meer</option>
               </Select>
-
-              <Box as={IoIosPerson} />
+              <Box></Box>
               <NumberInput
                 value={recipeYield}
                 name="recipeYield"
                 onChange={handleChangeRecipeYield}
+                defaultValue={4}
+                min={1}
+                max={16}
               >
                 <NumberInputField />
                 <NumberInputStepper>
@@ -192,6 +214,14 @@ export default function CreateRecipeForm() {
                 </NumberInputStepper>
               </NumberInput>
             </Grid>
+            <Input
+              mt={2}
+              id="image"
+              placeholder="Geef een url voor een afbeelding."
+              name="image"
+              value={image}
+              onChange={handleChangeImage}
+            />
           </FormControl>
         </Box>
 
@@ -202,7 +232,7 @@ export default function CreateRecipeForm() {
         </Flex>
       </Box>
       <Box w="50%">
-        <RecipeDetailed recipe={initialRecipe} />
+        <RecipeDetailed recipe={previewRecipe} />
       </Box>
     </Flex>
   );

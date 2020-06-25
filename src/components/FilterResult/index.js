@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Divider, Grid } from "@chakra-ui/core";
-import { IconButton } from "@chakra-ui/core";
 
 export default function Filterresult({ filterResult }) {
   return (

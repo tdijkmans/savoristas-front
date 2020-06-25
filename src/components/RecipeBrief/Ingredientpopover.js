@@ -23,7 +23,7 @@ export default function Ingredientpopover({ ingredients, id }) {
     </List>
   );
 
-  const recipeUrl = `recipes/${id}`;
+  const recipeUrl = `recipe/${id}`;
   return (
     <Popover trigger="hover">
       <PopoverTrigger>

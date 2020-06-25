@@ -42,6 +42,6 @@ export const postPalette = (name, description, ingredientList) => {
         headers: { Authorization: `Bearer ${token}` },
       }
     );
-    console.log(response.data);
+    dispatch(addThisPalette(response.data.Palette));
   };
 };

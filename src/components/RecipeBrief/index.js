@@ -7,8 +7,18 @@ import { Text } from "@chakra-ui/core";
 
 import { IoIosTimer, IoIosPerson } from "react-icons/io";
 
+import Ingredientpopover from "./Ingredientpopover";
+
 export default function RecipeBrief({ recipe }) {
-  const { cookTime, recipeYield, name, image, description } = recipe;
+  const {
+    cookTime,
+    recipeYield,
+    name,
+    image,
+    description,
+    ingredients,
+    id,
+  } = recipe;
 
   return (
     <Box p={3} Width="20%">
@@ -36,7 +46,10 @@ export default function RecipeBrief({ recipe }) {
         >
           {description}
         </Box>
-        <Divider p={2} />
+
+        <Ingredientpopover ingredients={ingredients} id={id} />
+
+        <Divider />
         <Grid p={2} templateColumns="repeat(4, 1fr)">
           <Box as={IoIosTimer} />
           <Text fontSize="xs">{cookTime}</Text>

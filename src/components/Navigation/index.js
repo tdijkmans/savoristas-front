@@ -6,12 +6,13 @@ import { useSelector } from "react-redux";
 import { selectToken } from "../../store/user/selectors";
 
 import LoggedIn from "./LoggedIn";
-import LoggedOut from "./LoggedOut";
+
+import Drawermenu from "./Drawermenu";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
 
-  const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
+  const loginLogoutControls = token ? <LoggedIn /> : <Drawermenu />;
   const postControls = token ? (
     <>
       <NavLink pl={20} m={20} to="/create-palette">
@@ -36,6 +37,7 @@ export default function Navigation() {
         <NavLink w={20} to="/" m={20}>
           Home
         </NavLink>
+
         {postControls}
       </Flex>
       <Box>{loginLogoutControls}</Box>

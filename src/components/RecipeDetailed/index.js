@@ -39,11 +39,11 @@ export default function RecipeDetailed({ recipe }) {
     <Box pr={3}>
       <Grid templateColumns="1fr 14fr">
         <Box></Box>
-        <List color="#5a6268" fontSize="sm">
+        <List as="ol" color="#5a6268" fontSize="sm">
           {recipeInstructions.split(". ").map((i) => (
             <ListItem key={i}>
               <ListIcon icon="chevron-right" color="green.500" />
-              {i}.
+              {i}
             </ListItem>
           ))}
         </List>

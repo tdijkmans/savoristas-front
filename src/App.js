@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { ThemeProvider, CSSReset } from "@chakra-ui/core";
+import { useDispatch } from "react-redux";
 
 import { Switch, Route } from "react-router-dom";
+
+import { getUserWithStoredToken } from "./store/user/actions";
 
 import Navigation from "./components/Navigation";
 import Login from "./pages/Login/index";
@@ -12,6 +15,11 @@ import CreatePalettePage from "./pages/CreatePalettePage";
 import CreateRecipePage from "./pages/CreateRecipePage";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserWithStoredToken());
+  }, [dispatch]);
+
   return (
     <ThemeProvider>
       <CSSReset />

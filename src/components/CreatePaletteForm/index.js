@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import InputColor from "react-input-color";
 import { postPalette } from "../../store/palettes/actions";
-import { useHistory } from "react-router-dom";
 
 import {
   FormControl,
   FormLabel,
   Box,
   Button,
+  Link,
   IconButton,
   Input,
   Divider,
@@ -48,12 +48,22 @@ export default function CreatePaletteForm() {
     initialPalette.ingredients
   );
 
+  const [message, setMessage] = useState("");
+
+  // Validate inputs (not empty, unique) and add ingredient with color to ingredient list.
   function listThisIngredient(event) {
-    setIngredientList([
-      ...ingredientList,
-      { name: ingredient, hexColor: color.hex },
-    ]);
-    setIngredient("");
+    if (ingredient === "") {
+      setMessage("Voer ajb een ingrediënt in.");
+    } else if (ingredientList.some((i) => i.name === ingredient) === true) {
+      setMessage("Voer ajb niet tweemaal hetzelfde ingrediënt in.");
+    } else {
+      setIngredientList([
+        ...ingredientList,
+        { name: ingredient, hexColor: color.hex },
+      ]);
+      setIngredient("");
+      setMessage("");
+    }
   }
 
   function removeThisIngredient(name) {
@@ -63,7 +73,20 @@ export default function CreatePaletteForm() {
       })
     );
   }
-  const history = useHistory();
+
+  const succesMessage = (
+    <Box>
+      <Box>Perfect, dat is gelukt!</Box>
+      <Box>
+        Maak er nog een, of bekijk{" "}
+        <Link color="teal.500" href="/">
+          hier
+        </Link>
+        .
+      </Box>
+    </Box>
+  );
+
   const dispatch = useDispatch();
 
   function submitPalette(event) {
@@ -72,11 +95,12 @@ export default function CreatePaletteForm() {
     setName(initialPalette.name);
     setDescription(initialPalette.description);
     setIngredientList(initialPalette.ingredients);
-    history.push("/");
+    setMessage(succesMessage);
   }
 
   // THIS REFORMATS DATA TO SEND TO PALETTE RENDERING FOR PREVIEW
   const convertedForPreview = ingredientList.map((i) => ({
+    id: i.name,
     name: i.name,
     paletteIngredients: { hexColor: i.hexColor },
   }));
@@ -86,7 +110,7 @@ export default function CreatePaletteForm() {
     ingredients: convertedForPreview,
   };
 
-  const listedIngredients = ingredientList.map((i, index) => (
+  const listedIngredients = ingredientList.map((i) => (
     <FormControl key={i.name} p={1} isReadOnly>
       <Grid templateColumns="1fr 4fr 1fr">
         <Box display="flex" alignItems="center" justifyContent="center">
@@ -109,8 +133,8 @@ export default function CreatePaletteForm() {
 
   return (
     <Box width="50%" marginLeft="auto" marginRight="auto">
-      <Box width="50%" marginLeft="auto" marginRight="auto">
-        <Palette foodPalette={foodPalette} pr={10} />
+      <Box width="80%" marginLeft="auto" marginRight="auto">
+        <Palette foodPalette={foodPalette} />
       </Box>
       <Divider p={5} />
       <FormControl isRequired type="submit">
@@ -150,8 +174,12 @@ export default function CreatePaletteForm() {
               value={ingredient}
               onChange={handleIngredient}
             />
+
             <IconButton onClick={listThisIngredient} icon="small-add" />
           </Grid>
+          <Box textAlign="center" p={4}>
+            {message}
+          </Box>
         </FormControl>
 
         <Divider p={3} />

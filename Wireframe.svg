@@ -7,41 +7,41 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="297mm"
-   height="210mm"
-   viewBox="0 0 297 210"
-   version="1.1"
-   id="svg8"
+   sodipodi:docname="Wireframe.svg"
    inkscape:version="1.0 (6e3e5246a0, 2020-05-07)"
-   sodipodi:docname="Wireframe.svg">
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 297 210"
+   height="210mm"
+   width="297mm">
   <defs
      id="defs2" />
   <sodipodi:namedview
-     inkscape:bbox-nodes="true"
-     inkscape:snap-bbox="true"
-     inkscape:snap-grids="true"
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="575.67893"
-     inkscape:cy="231.8698"
-     inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
-     inkscape:document-rotation="0"
-     showgrid="true"
-     inkscape:snap-page="true"
-     inkscape:window-width="1280"
-     inkscape:window-height="1387"
-     inkscape:window-x="1280"
+     inkscape:window-maximized="1"
      inkscape:window-y="27"
-     inkscape:window-maximized="0">
+     inkscape:window-x="0"
+     inkscape:window-height="1387"
+     inkscape:window-width="2560"
+     inkscape:snap-page="true"
+     showgrid="true"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="g960"
+     inkscape:document-units="mm"
+     inkscape:cy="423.8912"
+     inkscape:cx="553.53545"
+     inkscape:zoom="0.9899495"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:snap-grids="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-nodes="true">
     <inkscape:grid
-       id="grid906"
-       type="xygrid" />
+       type="xygrid"
+       id="grid906" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -56,311 +56,289 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
+     id="layer1"
      inkscape:groupmode="layer"
-     id="layer1">
+     inkscape:label="Layer 1">
     <g
-       transform="matrix(0.87999829,0,0,1,17.953514,110.73756)"
-       id="g94-9">
+       id="g94-9"
+       transform="matrix(0.87999829,0,0,1,17.953514,110.73756)">
       <rect
-         y="25.841183"
+         style="fill:#5a9cfe;stroke-width:1.06600462;stroke:#d63384;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect10-3-1"
+         width="43.85154"
+         height="43.713966"
          x="34.519657"
+         y="25.841183" />
+      <rect
+         y="25.841187"
+         x="81.102188"
          height="43.713966"
          width="43.85154"
-         id="rect10-3-1"
+         id="rect10-3-6-2"
          style="fill:#5a9cfe;stroke-width:1.06600462;stroke:#d63384;stroke-miterlimit:4;stroke-dasharray:none" />
       <rect
          style="fill:#5a9cfe;stroke-width:1.06600462;stroke:#d63384;stroke-miterlimit:4;stroke-dasharray:none"
-         id="rect10-3-6-2"
+         id="rect10-3-6-7-7"
          width="43.85154"
          height="43.713966"
-         x="81.102188"
+         x="127.68472"
          y="25.841187" />
       <rect
-         y="25.841187"
-         x="127.68472"
-         height="43.713966"
-         width="43.85154"
-         id="rect10-3-6-7-7"
-         style="fill:#5a9cfe;stroke-width:1.06600462;stroke:#d63384;stroke-miterlimit:4;stroke-dasharray:none" />
-      <rect
-         y="25.841187"
-         x="174.26724"
-         height="43.713966"
-         width="43.85154"
+         style="fill:#5a9cfe;stroke-width:1.06600462;stroke:#d63384;stroke-miterlimit:4;stroke-dasharray:none"
          id="rect10-3-6-5-0"
-         style="fill:#5a9cfe;stroke-width:1.06600462;stroke:#d63384;stroke-miterlimit:4;stroke-dasharray:none" />
-      <rect
-         y="25.841187"
-         x="220.84976"
-         height="43.713966"
          width="43.85154"
+         height="43.713966"
+         x="174.26724"
+         y="25.841187" />
+      <rect
+         style="fill:#5a9cfe;stroke-width:0.182003"
          id="rect10-3-6-3-9"
-         style="fill:#5a9cfe;stroke-width:0.182003" />
+         width="43.85154"
+         height="43.713966"
+         x="220.84976"
+         y="25.841187" />
+      <rect
+         y="72.247513"
+         x="34.519657"
+         height="23.389927"
+         width="43.85154"
+         id="rect10-3-5-3"
+         style="fill:#5a9cfe;stroke-width:0.133132" />
       <rect
          style="fill:#5a9cfe;stroke-width:0.133132"
-         id="rect10-3-5-3"
-         width="43.85154"
-         height="23.389927"
-         x="34.519657"
-         y="72.247513" />
-      <rect
-         y="72.24752"
-         x="81.102188"
-         height="23.389927"
-         width="43.85154"
          id="rect10-3-6-6-6"
-         style="fill:#5a9cfe;stroke-width:0.133132" />
+         width="43.85154"
+         height="23.389927"
+         x="81.102188"
+         y="72.24752" />
       <text
-         transform="matrix(0,0.93808225,-1.0660046,0,0,0)"
-         id="text972"
-         y="-15.86532"
-         x="-91.376617"
+         xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:11.2819px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.282047"
-         xml:space="preserve"><tspan
-           style="stroke-width:0.282047"
-           y="-15.86532"
-           x="-91.376617"
+         x="-91.376617"
+         y="-15.86532"
+         id="text972"
+         transform="matrix(0,0.93808225,-1.0660046,0,0,0)"><tspan
+           sodipodi:role="line"
            id="tspan970"
-           sodipodi:role="line">5. Select palette shows ~recipes</tspan></text>
+           x="-91.376617"
+           y="-15.86532"
+           style="stroke-width:0.282047">5. Select palette shows ~recipes</tspan></text>
     </g>
     <rect
-       style="fill:#2ec27e;stroke-width:0.265931"
-       id="rect10"
-       width="298.41251"
-       height="13.714071"
+       y="0"
        x="0"
-       y="0" />
+       height="13.714071"
+       width="298.41251"
+       id="rect10"
+       style="fill:#2ec27e;stroke-width:0.265931" />
     <rect
-       y="25.841183"
+       style="fill:#2ec27e;stroke:#d63384;stroke-width:0.999996;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect10-3"
+       width="38.589279"
+       height="43.713966"
        x="48.330753"
+       y="25.841183" />
+    <rect
+       y="25.841187"
+       x="89.323303"
        height="43.713966"
        width="38.589279"
-       id="rect10-3"
-       style="fill:#2ec27e;stroke:#d63384;stroke-width:0.999996;stroke-miterlimit:4;stroke-dasharray:none" />
+       id="rect10-3-6"
+       style="fill:#2ec27e;stroke-width:0.170734" />
     <rect
        style="fill:#2ec27e;stroke-width:0.170734"
-       id="rect10-3-6"
+       id="rect10-3-6-7"
        width="38.589279"
        height="43.713966"
-       x="89.323303"
+       x="130.31586"
        y="25.841187" />
     <rect
-       y="25.841187"
-       x="130.31586"
-       height="43.713966"
-       width="38.589279"
-       id="rect10-3-6-7"
-       style="fill:#2ec27e;stroke-width:0.170734" />
-    <rect
-       y="25.841187"
-       x="171.3084"
-       height="43.713966"
-       width="38.589279"
+       style="fill:#2ec27e;stroke-width:0.170734"
        id="rect10-3-6-5"
-       style="fill:#2ec27e;stroke-width:0.170734" />
+       width="38.589279"
+       height="43.713966"
+       x="171.3084"
+       y="25.841187" />
     <rect
-       y="25.841187"
+       style="fill:#2ec27e;stroke-width:0.170734"
+       id="rect10-3-6-3"
+       width="38.589279"
+       height="43.713966"
        x="212.30092"
+       y="25.841187" />
+    <rect
+       y="72.247513"
+       x="48.330753"
        height="43.713966"
        width="38.589279"
-       id="rect10-3-6-3"
+       id="rect10-3-5"
        style="fill:#2ec27e;stroke-width:0.170734" />
     <rect
        style="fill:#2ec27e;stroke-width:0.170734"
-       id="rect10-3-5"
-       width="38.589279"
-       height="43.713966"
-       x="48.330753"
-       y="72.247513" />
-    <rect
-       y="72.24752"
-       x="89.323303"
-       height="43.713966"
-       width="38.589279"
        id="rect10-3-6-6"
-       style="fill:#2ec27e;stroke-width:0.170734" />
-    <rect
-       style="fill:#84420a;stroke:none;stroke-width:1.53967;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect976"
-       width="37.637836"
-       height="29.100218"
-       x="48.807602"
-       y="26.379393" />
+       width="38.589279"
+       height="43.713966"
+       x="89.323303"
+       y="72.24752" />
     <rect
        y="26.379393"
        x="48.807602"
        height="29.100218"
-       width="18.818918"
-       id="rect976-9"
-       style="fill:#ffc107;stroke:none;stroke-width:1.08871;stroke-miterlimit:4;stroke-dasharray:none" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.74592px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.197746"
-       x="-47.574478"
-       y="59.52636"
-       id="text1010"
-       transform="rotate(-90)"><tspan
-         sodipodi:role="line"
-         id="tspan1008"
-         x="-47.574478"
-         y="59.52636"
-         style="font-size:4.74592px;stroke-width:0.197746">Apple</tspan></text>
-    <text
-       id="text1010-4"
-       y="78.809677"
-       x="-52.541245"
-       style="font-style:normal;font-weight:normal;font-size:4.74592px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.197746"
-       xml:space="preserve"
-       transform="rotate(-90)"><tspan
-         style="font-size:4.74592px;stroke-width:0.197746"
-         y="78.809677"
-         x="-52.541245"
-         id="tspan1008-6"
-         sodipodi:role="line">Cinnamon</tspan></text>
+       width="37.637836"
+       id="rect976"
+       style="fill:#84420a;stroke:none;stroke-width:1.53967;stroke-miterlimit:4;stroke-dasharray:none" />
     <rect
-       y="124.88931"
-       x="15.875"
-       height="2.110682"
-       width="272.51184"
+       style="fill:#ffc107;stroke:none;stroke-width:1.08871;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect976-9"
+       width="18.818918"
+       height="29.100218"
+       x="48.807602"
+       y="26.379393" />
+    <text
+       transform="rotate(-90)"
+       id="text1010"
+       y="59.52636"
+       x="-47.574478"
+       style="font-style:normal;font-weight:normal;font-size:4.74592px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.197746"
+       xml:space="preserve"><tspan
+         style="font-size:4.74592px;stroke-width:0.197746"
+         y="59.52636"
+         x="-47.574478"
+         id="tspan1008"
+         sodipodi:role="line">Apple</tspan></text>
+    <text
+       transform="rotate(-90)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.74592px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.197746"
+       x="-52.541245"
+       y="78.809677"
+       id="text1010-4"><tspan
+         sodipodi:role="line"
+         id="tspan1008-6"
+         x="-52.541245"
+         y="78.809677"
+         style="font-size:4.74592px;stroke-width:0.197746">Cinnamon</tspan></text>
+    <rect
+       style="fill:#2ec27e;stroke-width:0.0996967"
        id="rect10-2"
-       style="fill:#2ec27e;stroke-width:0.0996967" />
+       width="272.51184"
+       height="2.110682"
+       x="15.875"
+       y="124.88931" />
     <g
-       transform="matrix(0.55290204,0,0,0.55290204,57.258702,4.6000248)"
-       id="g968">
+       id="g968"
+       transform="matrix(0.55290204,0,0,0.55290204,57.258702,4.6000248)">
       <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:13.2392px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.330981"
+         id="text862"
+         y="10.638459"
          x="3.8888383"
-         y="10.638459"
-         id="text862"><tspan
-           sodipodi:role="line"
-           id="tspan860"
-           x="3.8888383"
-           y="10.638459"
-           style="stroke-width:0.330981">1. Signup</tspan></text>
-      <text
-         id="text862-1"
-         y="10.638459"
-         x="71.204605"
          style="font-style:normal;font-weight:normal;font-size:13.2392px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.330981"
          xml:space="preserve"><tspan
            style="stroke-width:0.330981"
            y="10.638459"
-           x="71.204605"
-           id="tspan860-8"
-           sodipodi:role="line">2. Create food palette</tspan></text>
+           x="3.8888383"
+           id="tspan860"
+           sodipodi:role="line">1. Signup</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:13.2392px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.330981"
-         x="222.02162"
+         x="71.204605"
          y="10.638459"
-         id="text862-1-5"><tspan
+         id="text862-1"><tspan
            sodipodi:role="line"
-           id="tspan860-8-9"
-           x="222.02162"
+           id="tspan860-8"
+           x="71.204605"
            y="10.638459"
-           style="stroke-width:0.330981">3. Create recipe</tspan></text>
+           style="stroke-width:0.330981">2. Create food palette</tspan></text>
+      <text
+         id="text862-1-5"
+         y="10.638459"
+         x="222.02162"
+         style="font-style:normal;font-weight:normal;font-size:13.2392px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.330981"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.330981"
+           y="10.638459"
+           x="222.02162"
+           id="tspan860-8-9"
+           sodipodi:role="line">3. Create recipe</tspan></text>
     </g>
     <g
        id="g954">
       <text
-         id="text149"
-         y="89.470474"
-         x="203.65469"
-         style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-         xml:space="preserve"><tspan
-           style="text-align:center;text-anchor:middle;stroke-width:0.264583"
-           y="89.470474"
-           x="203.65469"
-           id="tspan147"
-           sodipodi:role="line">4. Food palettes </tspan><tspan
-           id="tspan974"
-           style="font-size:5.64444px;text-align:center;text-anchor:middle;stroke-width:0.264583"
-           y="102.6996"
-           x="203.65469"
-           sodipodi:role="line">(ingredient combo's)</tspan></text>
-      <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-         x="178.19896"
-         y="111.55797"
-         id="text149-7"><tspan
+         x="203.65469"
+         y="89.470474"
+         id="text149"><tspan
            sodipodi:role="line"
-           id="tspan147-5"
-           x="178.19896"
-           y="111.55797"
-           style="stroke-width:0.264583">&lt;1 ... 5&gt;</tspan></text>
+           id="tspan147"
+           x="203.65469"
+           y="89.470474"
+           style="text-align:center;text-anchor:middle;stroke-width:0.264583">4. Food palettes </tspan><tspan
+           sodipodi:role="line"
+           x="203.65469"
+           y="102.6996"
+           style="font-size:5.64444px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+           id="tspan974">(ingredient combo's)</tspan></text>
     </g>
     <g
-       transform="translate(5.8786316)"
-       id="g960">
+       id="g960"
+       transform="translate(5.8786316)">
       <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-         x="141.58586"
+         id="text149-3"
          y="192.83385"
-         id="text149-3"><tspan
-           sodipodi:role="line"
-           id="tspan147-8"
-           x="141.58586"
-           y="192.83385"
-           style="stroke-width:0.264583">4. Recipes </tspan></text>
-      <text
-         id="text149-7-8"
-         y="202.75052"
-         x="145.00684"
+         x="141.58586"
          style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
          xml:space="preserve"><tspan
            style="stroke-width:0.264583"
-           y="202.75052"
-           x="145.00684"
-           id="tspan147-5-3"
-           sodipodi:role="line">&lt;1 ... 5&gt;</tspan></text>
+           y="192.83385"
+           x="141.58586"
+           id="tspan147-8"
+           sodipodi:role="line">4. Recipes </tspan></text>
     </g>
     <text
-       id="text1010-9"
-       y="143.83495"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.74591px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.197746"
        x="52.879589"
-       style="font-style:normal;font-weight:normal;font-size:4.74591px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.197746"
-       xml:space="preserve"><tspan
-         style="font-size:4.74591px;stroke-width:0.197746"
-         y="143.83495"
-         x="52.879589"
+       y="143.83495"
+       id="text1010-9"><tspan
+         sodipodi:role="line"
          id="tspan1008-2"
-         sodipodi:role="line">Apple pie</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.74591px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.197746"
-       x="95.212921"
-       y="143.83495"
-       id="text1010-9-2"><tspan
-         sodipodi:role="line"
-         id="tspan1008-2-4"
-         x="95.212921"
+         x="52.879589"
          y="143.83495"
-         style="font-size:4.74591px;stroke-width:0.197746">Apple cake 1</tspan></text>
+         style="font-size:4.74591px;stroke-width:0.197746">Apple pie</tspan></text>
     <text
-       id="text1010-9-2-7"
+       id="text1010-9-2"
        y="143.83495"
-       x="134.90042"
+       x="95.212921"
        style="font-style:normal;font-weight:normal;font-size:4.74591px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.197746"
        xml:space="preserve"><tspan
          style="font-size:4.74591px;stroke-width:0.197746"
          y="143.83495"
-         x="134.90042"
-         id="tspan1008-2-4-7"
-         sodipodi:role="line">Apple cake 2</tspan></text>
+         x="95.212921"
+         id="tspan1008-2-4"
+         sodipodi:role="line">Apple cake 1</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.74591px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.197746"
-       x="174.58792"
+       x="134.90042"
        y="143.83495"
-       id="text1010-9-5"><tspan
+       id="text1010-9-2-7"><tspan
          sodipodi:role="line"
-         id="tspan1008-2-48"
-         x="174.58792"
+         id="tspan1008-2-4-7"
+         x="134.90042"
          y="143.83495"
-         style="font-size:4.74591px;stroke-width:0.197746">Apple sauce</tspan></text>
+         style="font-size:4.74591px;stroke-width:0.197746">Apple cake 2</tspan></text>
+    <text
+       id="text1010-9-5"
+       y="143.83495"
+       x="174.58792"
+       style="font-style:normal;font-weight:normal;font-size:4.74591px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.197746"
+       xml:space="preserve"><tspan
+         style="font-size:4.74591px;stroke-width:0.197746"
+         y="143.83495"
+         x="174.58792"
+         id="tspan1008-2-48"
+         sodipodi:role="line">Apple sauce</tspan></text>
   </g>
 </svg>

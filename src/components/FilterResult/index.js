@@ -1,9 +1,7 @@
 import React from "react";
-
 import { Box, Divider, Grid } from "@chakra-ui/core";
-import { IconButton } from "@chakra-ui/core";
 
-export default function CreatePaletteButton() {
+export default function Filterresult({ filterResult }) {
   return (
     <Box as="a" p={3} Width="20%" href="/create-palette">
       {
@@ -17,24 +15,21 @@ export default function CreatePaletteButton() {
           <Grid templateColumns="3">
             <Box w="100%" h="150px">
               <Box
-                textTransform="capitalize"
                 lineHeight="200px"
                 p={2}
+                fontSize={50}
                 textAlign="center"
-                color="white"
-                textShadow="-1px 1px 3px #000000"
+                color="green.600"
               >
-                <IconButton size="lg" icon="add" />
+                {filterResult}
               </Box>
             </Box>
           </Grid>
           <Box pt={3} px={3} fontWeight="semibold" color="green.600">
-            Creëer je eigen palet!
+            recepten voor dit palet.
             <Divider />
           </Box>
-          <Box pr={3} pl={3} color="#5a6268">
-            {/* {foodPalette.description} */}
-          </Box>
+          <Box pr={3} pl={3} color="#5a6268"></Box>
         </Box>
       }
     </Box>

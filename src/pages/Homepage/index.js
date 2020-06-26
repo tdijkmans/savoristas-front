@@ -19,12 +19,15 @@ import { fetchRecipes } from "../../store/recipes/actions";
 import { selectPalettes } from "../../store/palettes/selectors";
 import { selectRecipes } from "../../store/recipes/selectors";
 import { selectFilteredRecipes } from "../../store/filteredrecipes/selectors";
+import Filterresult from "../../components/FilterResult";
 
 export default function Homepage() {
   const dispatch = useDispatch();
   const palettes = useSelector(selectPalettes);
   const recipes = useSelector(selectRecipes);
+
   const filteredRecipes = useSelector(selectFilteredRecipes);
+  const filterResult = filteredRecipes && filteredRecipes.length;
 
   useEffect(() => {
     dispatch(fetchPalettes());
@@ -54,17 +57,18 @@ export default function Homepage() {
   return (
     <Box bg="#F7F3E7">
       <Box width="80%" marginLeft="auto" marginRight="auto">
-        <Text p={2} fontSize="4xl">
-          The latest Food Palettes
+        <Text p={2} fontSize="4xl" color="#5a6268">
+          De laatste smaakpaletten
         </Text>
 
         <Grid templateColumns="repeat(4, 1fr)">
           {paletteList}
           <CreatePaletteButton />
+          <Filterresult filterResult={filterResult} />
         </Grid>
         <Divider />
-        <Text p={2} fontSize="4xl">
-          The latest Recipes
+        <Text p={2} fontSize="4xl" color="#5a6268">
+          De laatste recepten
         </Text>
         <Grid templateColumns="repeat(4, 1fr)">
           {recipesList}

@@ -11,6 +11,7 @@ import Navigation from "./components/Navigation";
 import Homepage from "./pages/Homepage";
 import CreatePalettePage from "./pages/CreatePalettePage";
 import CreateRecipePage from "./pages/CreateRecipePage";
+import RecipeDetailPage from "./pages/RecipeDetailPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function App() {
       <Navigation />
       <Switch>
         <Route exact path="/" component={Homepage} />
-
+        <Route path="/recipe/:id" component={RecipeDetailPage} />
         <Route exact path="/create-recipe" component={CreateRecipePage} />
         <Route path="/create-palette" component={CreatePalettePage} />
       </Switch>

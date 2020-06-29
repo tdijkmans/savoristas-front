@@ -2,7 +2,7 @@
 
 ## What this app is about
 
-_TODO: link to deployed version._
+[Find out here for a working version](https://flamboyant-knuth-1ca76b.netlify.app/)
 
 Savoristas charts the exciting universe of ingredients combinations. This web app allows visitors to create and share 'food palettes' - being color palettes, but than palettes of colorful ingredients (you need to see it, really). Visitor can share recipes too, and palettes work as filters for the recipes. So if you like the apple & cinnamon palette, your favorite apple pie recipe is one click away.
 

@@ -19,7 +19,7 @@ Savoristas charts the exciting universe of ingredients combinations. This web ap
 
 ## App demo
 
-_TODO: insert screen recording_
+https://github.com/tdijkmans/savoristas-front/blob/master/readme-assets/Post-a-palette.gif
 
 ## Used technologies and concepts
 

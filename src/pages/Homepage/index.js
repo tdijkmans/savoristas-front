@@ -2,27 +2,25 @@ import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { Divider } from "@chakra-ui/core";
-import { Box } from "@chakra-ui/core";
-import { Grid } from "@chakra-ui/core";
-import { Text } from "@chakra-ui/core";
-import { CircularProgress } from "@chakra-ui/core";
+import { Divider, Box, Grid, Text, CircularProgress } from "@chakra-ui/core";
 
 import RecipeBrief from "../../components/RecipeBrief";
 import Palette from "../../components/Palette";
 import CreatePaletteButton from "../../components/CreatePaletteButton";
 import CreateRecipeButton from "../../components/CreateRecipeButton";
+import Filterresult from "../../components/FilterResult";
 
 import { fetchPalettes } from "../../store/palettes/actions";
 import { fetchRecipes } from "../../store/recipes/actions";
 
+import { selectToken } from "../../store/user/selectors";
 import { selectPalettes } from "../../store/palettes/selectors";
 import { selectRecipes } from "../../store/recipes/selectors";
 import { selectFilteredRecipes } from "../../store/filteredrecipes/selectors";
-import Filterresult from "../../components/FilterResult";
 
 export default function Homepage() {
   const dispatch = useDispatch();
+  const token = useSelector(selectToken);
   const palettes = useSelector(selectPalettes);
   const recipes = useSelector(selectRecipes);
 
@@ -63,7 +61,7 @@ export default function Homepage() {
 
         <Grid templateColumns="repeat(4, 1fr)">
           {paletteList}
-          <CreatePaletteButton />
+          {token && <CreatePaletteButton />}
           <Filterresult filterResult={filterResult} />
         </Grid>
         <Divider />
@@ -72,7 +70,7 @@ export default function Homepage() {
         </Text>
         <Grid templateColumns="repeat(4, 1fr)">
           {recipesList}
-          <CreateRecipeButton />
+          {token && <CreateRecipeButton />}
         </Grid>
       </Box>
     </Box>

@@ -27,35 +27,21 @@ export default function CreatePaletteForm() {
       { name: "Honing", hexColor: "#FDD835" },
     ],
   };
-
   const [name, setName] = useState(initialPalette.name);
-  function handleChangeName(event) {
-    setName(event.target.value);
-  }
-
   const [description, setDescription] = useState(initialPalette.description);
-  function handleChangeDescription(event) {
-    setDescription(event.target.value);
-  }
-
   const [color, setColor] = useState({});
   const [ingredient, setIngredient] = useState("");
-  function handleIngredient(event) {
-    setIngredient(event.target.value);
-  }
-
   const [ingredientList, setIngredientList] = useState(
     initialPalette.ingredients
   );
-
   const [message, setMessage] = useState("");
 
   // Validate inputs (not empty, unique) and add ingredient with color to ingredient list.
   function listThisIngredient(event) {
     if (ingredient === "") {
-      setMessage("Voer ajb een ingrediënt in.");
+      setMessage("Voeg alsjeblieft een ingrediënt toe.");
     } else if (ingredientList.some((i) => i.name === ingredient) === true) {
-      setMessage("Voer ajb niet tweemaal hetzelfde ingrediënt in.");
+      setMessage("Voeg alsjeblieft niet tweemaal hetzelfde ingrediënt toe.");
     } else {
       setIngredientList([
         ...ingredientList,
@@ -68,9 +54,7 @@ export default function CreatePaletteForm() {
 
   function removeThisIngredient(name) {
     setIngredientList(
-      ingredientList.filter(function (ingredient) {
-        return ingredient.name !== name;
-      })
+      ingredientList.filter((ingredient) => ingredient.name !== name)
     );
   }
 
@@ -91,11 +75,19 @@ export default function CreatePaletteForm() {
 
   function submitPalette(event) {
     event.preventDefault();
-    dispatch(postPalette(name, description, ingredientList));
-    setName(initialPalette.name);
-    setDescription(initialPalette.description);
-    setIngredientList(initialPalette.ingredients);
-    setMessage(succesMessage);
+
+    if (ingredientList.length === 0) {
+      setMessage("Voeg alsjeblieft minimaal 1 ingrediënt toe.");
+    } else if (ingredientList.length > 5) {
+      setMessage("Voeg alsjeblieft maximaal 5 ingrediënten toe.");
+    } else {
+      console.log(name, description, ingredientList);
+      // dispatch(postPalette(name, description, ingredientList));
+      // setName(initialPalette.name);
+      // setDescription(initialPalette.description);
+      // setIngredientList(initialPalette.ingredients);
+      // setMessage(succesMessage);
+    }
   }
 
   // THIS REFORMATS DATA TO SEND TO PALETTE RENDERING FOR PREVIEW
@@ -144,7 +136,7 @@ export default function CreatePaletteForm() {
           placeholder="Hoe wil je het palet noemen?"
           name="name"
           value={name}
-          onChange={handleChangeName}
+          onChange={(e) => setName(e.target.value)}
         />
         <FormLabel htmlFor="description">Beschrijving</FormLabel>
         <Input
@@ -152,7 +144,7 @@ export default function CreatePaletteForm() {
           placeholder="Geef hier een korte beschrijving"
           name="description"
           value={description}
-          onChange={handleChangeDescription}
+          onChange={(e) => setDescription(e.target.value)}
         />
 
         <Divider p={3} />
@@ -160,22 +152,27 @@ export default function CreatePaletteForm() {
 
         <FormControl p={1}>
           <Grid templateColumns="1fr 4fr 1fr">
-            <Box display="flex" alignItems="center" justifyContent="center">
-              <InputColor
-                initialValue="#F7F3E7"
-                onChange={setColor}
-                name="hexColor"
-              />
-            </Box>
-            <Input
-              id="Ingredient"
-              name="name"
-              placeholder="Voeg een ingrediënt toe"
-              value={ingredient}
-              onChange={handleIngredient}
-            />
+            {ingredientList.length < 5 && (
+              <>
+                <Box display="flex" alignItems="center" justifyContent="center">
+                  <InputColor
+                    initialValue="#F7F3E7"
+                    onChange={setColor}
+                    name="hexColor"
+                  />
+                </Box>
 
-            <IconButton onClick={listThisIngredient} icon="small-add" />
+                <Input
+                  id="Ingredient"
+                  name="name"
+                  placeholder="Voeg een ingrediënt toe"
+                  value={ingredient}
+                  onChange={(e) => setIngredient(e.target.value)}
+                />
+
+                <IconButton onClick={listThisIngredient} icon="small-add" />
+              </>
+            )}
           </Grid>
           <Box textAlign="center" p={4}>
             {message}

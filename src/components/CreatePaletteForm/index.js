@@ -81,12 +81,11 @@ export default function CreatePaletteForm() {
     } else if (ingredientList.length > 5) {
       setMessage("Voeg alsjeblieft maximaal 5 ingrediënten toe.");
     } else {
-      console.log(name, description, ingredientList);
-      // dispatch(postPalette(name, description, ingredientList));
-      // setName(initialPalette.name);
-      // setDescription(initialPalette.description);
-      // setIngredientList(initialPalette.ingredients);
-      // setMessage(succesMessage);
+      dispatch(postPalette(name, description, ingredientList));
+      setName(initialPalette.name);
+      setDescription(initialPalette.description);
+      setIngredientList(initialPalette.ingredients);
+      setMessage(succesMessage);
     }
   }
 

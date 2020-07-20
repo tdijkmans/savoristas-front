@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { fetchRecipesByPalette } from "../../store/filteredrecipes/actions";
 import { clearPaletteFilter } from "../../store/filteredrecipes/actions";
 
+import contrastText from "./contrastText";
+
 export default function Palette({ foodPalette }) {
   const [recipeToggle, setRecipeToggle] = useState("recepten");
   const dispatch = useDispatch();
@@ -38,7 +40,12 @@ export default function Palette({ foodPalette }) {
 
   const ingredientSwatches = coloredIngredients.map((i) => (
     <Box key={i.id} bg={i.hexColor} w={200} overflow="hidden">
-      <Text p={2} fontSize="xs" textTransform="capitalize" color="white">
+      <Text
+        p={2}
+        fontSize="xs"
+        textTransform="capitalize"
+        color={contrastText(i.hexColor)}
+      >
         {i.name}
       </Text>
     </Box>

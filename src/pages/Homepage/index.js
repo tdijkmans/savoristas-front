@@ -2,7 +2,14 @@ import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { Divider, Box, Grid, Text, CircularProgress } from "@chakra-ui/core";
+import {
+  Divider,
+  Box,
+  Grid,
+  Flex,
+  Text,
+  CircularProgress,
+} from "@chakra-ui/core";
 
 import RecipeBrief from "../../components/RecipeBrief";
 import Palette from "../../components/Palette";
@@ -53,17 +60,19 @@ export default function Homepage() {
     : loader;
 
   return (
-    <Box bg="#F7F3E7">
-      <Box width="80%" marginLeft="auto" marginRight="auto">
+    <Box width="80%" marginLeft="auto" marginRight="auto" bg="#F7F3E7">
+      <Box>
         <Text p={2} fontSize="4xl" color="#5a6268">
           De laatste smaakpaletten
         </Text>
 
-        <Grid templateColumns="repeat(4, 1fr)">
+        <Flex wrap="wrap" justify="center">
+          {paletteList}
+          {paletteList}
           {paletteList}
           {token && <CreatePaletteButton />}
           <Filterresult filterResult={filterResult} />
-        </Grid>
+        </Flex>
         <Divider />
         <Text p={2} fontSize="4xl" color="#5a6268">
           De laatste recepten

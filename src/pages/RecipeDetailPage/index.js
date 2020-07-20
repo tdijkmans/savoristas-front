@@ -41,10 +41,10 @@ export default function RecipeDetailPage() {
     <Box>
       <Grid templateColumns="1fr 5fr">
         <Box></Box>
-        <List color="#5a6268">
+        <List color="savColor.5">
           {ingredients.map((i) => (
             <ListItem key={i.name}>
-              <ListIcon icon="chevron-right" color="green.500" />
+              <ListIcon icon="chevron-right" color="savColor.4" />
               {i.recipeIngredients.ingredientQuantity} {i.name}
             </ListItem>
           ))}
@@ -57,10 +57,10 @@ export default function RecipeDetailPage() {
     <Box pr={3}>
       <Grid templateColumns="1fr 14fr">
         <Box></Box>
-        <List as="ol" color="#5a6268" fontSize="sm">
+        <List as="ol" color="savColor.5" fontSize="sm">
           {recipeInstructions.split(". ").map((i) => (
             <ListItem key={i}>
-              <ListIcon icon="chevron-right" color="green.500" />
+              <ListIcon icon="chevron-right" color="savColor.4" />
               {i}
             </ListItem>
           ))}
@@ -81,7 +81,7 @@ export default function RecipeDetailPage() {
         bg="white"
         borderRadius="4px"
       >
-        <Box pt={3} px={3} fontWeight="semibold" color="green.600">
+        <Box pt={3} px={3} fontWeight="semibold" color="savColor.3">
           {name}
         </Box>
 
@@ -91,7 +91,7 @@ export default function RecipeDetailPage() {
           pl={3}
           fontSize="sm"
           fontStyle="italic"
-          color="#5a6268"
+          color="savColor.5"
         >
           {description}
         </Box>

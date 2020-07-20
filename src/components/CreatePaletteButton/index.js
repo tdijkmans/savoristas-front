@@ -28,13 +28,11 @@ export default function CreatePaletteButton() {
               </Box>
             </Box>
           </Grid>
-          <Box pt={3} px={3} fontWeight="semibold" color="green.600">
+          <Box pt={3} px={3} fontWeight="semibold" color="savColor.3">
             Creëer je eigen palet!
             <Divider />
           </Box>
-          <Box pr={3} pl={3} color="#5a6268">
-            {/* {foodPalette.description} */}
-          </Box>
+          <Box pr={3} pl={3}></Box>
         </Box>
       }
     </Box>

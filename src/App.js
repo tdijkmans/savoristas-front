@@ -12,6 +12,7 @@ import Homepage from "./pages/Homepage";
 import CreatePalettePage from "./pages/CreatePalettePage";
 import CreateRecipePage from "./pages/CreateRecipePage";
 import RecipeDetailPage from "./pages/RecipeDetailPage";
+import customTheme from "./theme";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={customTheme}>
       <CSSReset />
       <Navigation />
       <Switch>

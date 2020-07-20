@@ -43,7 +43,9 @@ export default function Palette({ foodPalette }) {
       <Text
         p={2}
         fontSize="xs"
-        textTransform="capitalize"
+        textTransform="uppercase"
+        letterSpacing={1}
+        textAlign="center"
         color={contrastText(i.hexColor)}
       >
         {i.name}
@@ -52,9 +54,17 @@ export default function Palette({ foodPalette }) {
   ));
 
   return (
-    <Box p={3}>
-      {
-        <Box p={1} boxShadow="md" bg="white" borderRadius="4px" w="200px">
+    <Box>
+      <Box p={3}>
+        <Box
+          px={1}
+          pt={1}
+          boxShadow="md"
+          bg="white"
+          borderTopLeftRadius="4px"
+          borderTopRightRadius="4px"
+          w="200px"
+        >
           <Box
             borderTopLeftRadius="4px"
             borderTopRightRadius="4px"
@@ -62,31 +72,53 @@ export default function Palette({ foodPalette }) {
           >
             {ingredientSwatches}
           </Box>
-          <Box p={2}>
-            <Text color="green.600" fontSize="sm">
+        </Box>
+
+        <Box>
+          <Box bg="white" boxShadow="md">
+            <Text
+              pl={3}
+              py={1}
+              color="green.600"
+              fontSize="sm"
+              textAlign="left"
+              textTransform="capital"
+              fontWeight="bold"
+            >
               {foodPalette.name}
             </Text>
-            <Divider />
-            <Text color="#5a6268" fontSize="sm">
-              {foodPalette.description}{" "}
-            </Text>
-            <Box
-              // backgroundColor="green.600"
-              borderTopRightRadius={4}
-              borderBottomRightRadius={4}
-              pr={3}
-              pl={3}
-              pb={0.5}
-              fontSize="xs"
-              // color="white"
-              onClick={() => toggleFilter(foodPalette)}
-              as="button"
-            >
-              {recipeToggle}
+          </Box>
+
+          <Box
+            bg="white"
+            borderBottomLeftRadius="4px"
+            borderBottomRightRadius="4px"
+            boxShadow="md"
+          >
+            <Box>
+              <Text pl={3} color="#5a6268" fontSize="xs" textAlign="left">
+                {foodPalette.description}{" "}
+              </Text>
+
+              <Divider></Divider>
+              <Box
+                // backgroundColor="green.600"
+                borderTopRightRadius={4}
+                borderBottomRightRadius={4}
+                pr={3}
+                pl={3}
+                pb={0.5}
+                fontSize="xs"
+                // color="white"
+                onClick={() => toggleFilter(foodPalette)}
+                as="button"
+              >
+                {recipeToggle}
+              </Box>
             </Box>
           </Box>
         </Box>
-      }
+      </Box>
     </Box>
   );
 }

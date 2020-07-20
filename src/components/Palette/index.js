@@ -10,7 +10,7 @@ import { clearPaletteFilter } from "../../store/filteredrecipes/actions";
 import contrastText from "./contrastText";
 
 export default function Palette({ foodPalette }) {
-  const [recipeToggle, setRecipeToggle] = useState("recepten");
+  const [recipeToggle, setRecipeToggle] = useState("");
   const dispatch = useDispatch();
 
   function filterRecipes(ingredients) {
@@ -23,11 +23,11 @@ export default function Palette({ foodPalette }) {
   }
 
   function toggleFilter(foodPalette) {
-    if (recipeToggle === "recepten") {
-      setRecipeToggle("x recepten");
+    if (recipeToggle === "") {
+      setRecipeToggle("green.600");
       filterRecipes(foodPalette.ingredients);
     } else {
-      setRecipeToggle("recepten");
+      setRecipeToggle("");
       clearFilter();
     }
   }
@@ -55,7 +55,13 @@ export default function Palette({ foodPalette }) {
 
   return (
     <Box>
-      <Box p={3}>
+      <Box
+        p={3}
+        bg={recipeToggle}
+        onClick={() => toggleFilter(foodPalette)}
+        as="button"
+        borderRadius="4px"
+      >
         <Box
           px={1}
           pt={1}
@@ -95,26 +101,12 @@ export default function Palette({ foodPalette }) {
             borderBottomRightRadius="4px"
             boxShadow="md"
           >
-            <Box>
-              <Text pl={3} color="#5a6268" fontSize="xs" textAlign="left">
+            <Box pl={3}>
+              <Text color="#5a6268" fontSize="xs" textAlign="left">
                 {foodPalette.description}{" "}
               </Text>
 
               <Divider></Divider>
-              <Box
-                // backgroundColor="green.600"
-                borderTopRightRadius={4}
-                borderBottomRightRadius={4}
-                pr={3}
-                pl={3}
-                pb={0.5}
-                fontSize="xs"
-                // color="white"
-                onClick={() => toggleFilter(foodPalette)}
-                as="button"
-              >
-                {recipeToggle}
-              </Box>
             </Box>
           </Box>
         </Box>

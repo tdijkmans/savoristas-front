@@ -11,7 +11,8 @@ Savoristas charts the exciting universe of ingredients combinations. This web ap
 - [App demo](#App-demo)
 - [Used technologies and concepts](#used-technologies-and-concepts)
 - [Goals for this project](#goals-for-this-project)
-- [User Stories](#user-stories)
+- [User stories](#user-stories)
+- [Project board](#project-board)
 - [Wireframe](#wireframe)
 - [Datamodel](#datamodel)
 - [Git version control](#git-version-control)
@@ -42,6 +43,7 @@ Savoristas charts the exciting universe of ingredients combinations. This web ap
 The goal of this project is to build a full-stack app, practicing known and exploring _new_ technologies (see above). I learned these new tools independently by reading its documentation, consultin forums like StackExchange and watching online videos.
 
 - practice full-stack app development
+- build a working prototype in 2 weeks
 - apply what we learned in Codaisseur's bootcamp
 - extend with new technology independently
 - showcase and document development skills using:
@@ -51,7 +53,7 @@ The goal of this project is to build a full-stack app, practicing known and expl
   - agile/[kanban project](https://github.com/users/tdijkmans/projects/1) approach
   - transparant and structured [git version control](#git-version-control)
 
-## User Stories
+## User stories
 
 - As a page visitor, I can sign up and log in as a user. I must register before I can post food palettes and recipes
 - As a visitor, I am able see existing food palettes and recipes as a gallery
@@ -64,13 +66,17 @@ The goal of this project is to build a full-stack app, practicing known and expl
 
 _This project is work in progress. Some features still need to be implemented and revised. Any suggestions or feedback is welcome, please let me know [here](https://www.linkedin.com/in/tdijkmans/)_.
 
+## Project Board
+
+Go to [project board](https://github.com/users/tdijkmans/projects/1)
+
 ## Wireframe
 
-Go to [Wireframe](Wireframe.svg)
+Go to [wireframe](Wireframe.svg)
 
 ## Datamodel
 
-Go to [Datamodel](Datamodel.svg)
+Go to [datamodel](Datamodel.svg)
 
 ## Git version control
 

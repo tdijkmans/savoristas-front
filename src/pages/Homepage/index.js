@@ -68,8 +68,7 @@ export default function Homepage() {
 
         <Flex wrap="wrap" justify="center">
           {paletteList}
-          {paletteList}
-          {paletteList}
+
           {token && <CreatePaletteButton />}
           <Filterresult filterResult={filterResult} />
         </Flex>

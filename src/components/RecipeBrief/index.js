@@ -4,7 +4,6 @@ import { Grid, Image, Text, Box, Divider } from "@chakra-ui/core";
 import { IoIosTimer, IoIosPerson } from "react-icons/io";
 
 import Ingredientpopover from "./Ingredientpopover";
-import IngredientsAccordion from "./ingredientsAccordion";
 
 export default function RecipeBrief({ recipe }) {
   const {

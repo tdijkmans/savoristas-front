@@ -3,7 +3,7 @@ import { Box, Divider, Grid } from "@chakra-ui/core";
 
 export default function Filterresult({ filterResult }) {
   return (
-    <Box as="a" p={3} Width="20%" href="/create-palette">
+    <Box p={3} Width="20%">
       {
         <Box
           h={256}

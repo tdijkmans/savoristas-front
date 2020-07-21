@@ -27,7 +27,7 @@ export default function Navigation() {
   return (
     <Flex
       as="nav"
-      bg="teal.500"
+      bg="savColor.5"
       color="white"
       px={5}
       py={4}

@@ -174,7 +174,7 @@ export default function CreateRecipeForm() {
               removeThisIngredient={removeThisIngredient}
             />
             <ListIngredientForm listThisIngredient={listThisIngredient} />
-            <Box color="teal.500" textAlign="center" p={4}>
+            <Box color="savColor.2" textAlign="center" p={4}>
               {message}
             </Box>
 
@@ -226,7 +226,11 @@ export default function CreateRecipeForm() {
         </Box>
 
         <Flex justifyContent="center" mt={5}>
-          <Button type="submit" variantColor="teal" onClick={submitRecipe}>
+          <Button
+            type="submit"
+            variantColor="savColor.2"
+            onClick={submitRecipe}
+          >
             Post dit recept!
           </Button>
         </Flex>

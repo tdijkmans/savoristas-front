@@ -24,7 +24,7 @@ export default function Palette({ foodPalette }) {
 
   function toggleFilter(foodPalette) {
     if (recipeToggle === "") {
-      setRecipeToggle("green.600");
+      setRecipeToggle("savColor.3");
       filterRecipes(foodPalette.ingredients);
     } else {
       setRecipeToggle("");
@@ -85,7 +85,7 @@ export default function Palette({ foodPalette }) {
             <Text
               pl={3}
               py={1}
-              color="green.600"
+              color="savColor.4"
               fontSize="sm"
               textAlign="left"
               textTransform="capital"
@@ -102,7 +102,7 @@ export default function Palette({ foodPalette }) {
             boxShadow="md"
           >
             <Box pl={3}>
-              <Text color="#5a6268" fontSize="xs" textAlign="left">
+              <Text color="savColor.5" fontSize="xs" textAlign="left">
                 {foodPalette.description}{" "}
               </Text>
 

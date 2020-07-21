@@ -40,21 +40,13 @@ export default function RecipeBrief({ recipe }) {
           {name}
         </Box>
 
-        <Box
-          pt={1}
-          pr={3}
-          pl={3}
-          fontSize="sm"
-          fontStyle="italic"
-          color="savColor.5"
-        >
-          {description}
+        <Box>
+          <Ingredientpopover
+            ingredients={ingredients}
+            description={description}
+            id={id}
+          />
         </Box>
-        <Grid templateColumns="1fr 1fr" p={1}>
-          <Box>
-            <Ingredientpopover ingredients={ingredients} id={id} />
-          </Box>
-        </Grid>
 
         <Divider />
         <Grid p={2} templateColumns="repeat(4, 1fr)">

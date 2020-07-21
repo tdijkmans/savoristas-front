@@ -1,17 +1,10 @@
 import React from "react";
 
-import {
-  Grid,
-  Image,
-  Text,
-  Box,
-  Divider,
-  ListIcon,
-  Link,
-} from "@chakra-ui/core";
+import { Grid, Image, Text, Box, Divider } from "@chakra-ui/core";
 import { IoIosTimer, IoIosPerson } from "react-icons/io";
 
 import Ingredientpopover from "./Ingredientpopover";
+import IngredientsAccordion from "./ingredientsAccordion";
 
 export default function RecipeBrief({ recipe }) {
   const {
@@ -27,7 +20,7 @@ export default function RecipeBrief({ recipe }) {
   const recipeUrl = `recipe/${id}`;
 
   return (
-    <Box p={3} Width="20%">
+    <Box p={3} w="200px" as="a" href={recipeUrl}>
       <Image src={image} alt={name} />
 
       <Box
@@ -38,7 +31,13 @@ export default function RecipeBrief({ recipe }) {
         bg="white"
         borderRadius="4px"
       >
-        <Box pt={3} px={3} fontWeight="semibold" color="green.600">
+        <Box
+          pt={3}
+          px={3}
+          fontWeight="semibold"
+          fontSize="sm"
+          color="savColor.4"
+        >
           {name}
         </Box>
 
@@ -48,19 +47,13 @@ export default function RecipeBrief({ recipe }) {
           pl={3}
           fontSize="sm"
           fontStyle="italic"
-          color="#5a6268"
+          color="savColor.5"
         >
           {description}
         </Box>
         <Grid templateColumns="1fr 1fr" p={1}>
           <Box>
             <Ingredientpopover ingredients={ingredients} id={id} />
-          </Box>
-          <Box>
-            <Text pr={2} textAlign="right" fontSize="xs" color="#5a6268">
-              <ListIcon icon="chevron-right" color="green.500" />{" "}
-              <Link href={recipeUrl}>details</Link>
-            </Text>
           </Box>
         </Grid>
 

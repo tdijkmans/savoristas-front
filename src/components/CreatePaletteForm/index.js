@@ -63,7 +63,7 @@ export default function CreatePaletteForm() {
       <Box>Perfect, dat is gelukt!</Box>
       <Box>
         Maak er nog een, of bekijk{" "}
-        <Link color="teal.500" href="/">
+        <Link color="savColor.2" href="/">
           hier
         </Link>
         .
@@ -155,7 +155,7 @@ export default function CreatePaletteForm() {
               <>
                 <Box display="flex" alignItems="center" justifyContent="center">
                   <InputColor
-                    initialValue="#F7F3E7"
+                    initialValue="savColor.5"
                     onChange={setColor}
                     name="hexColor"
                   />
@@ -181,7 +181,11 @@ export default function CreatePaletteForm() {
         <Divider p={3} />
 
         <Flex justifyContent="center" mt={5}>
-          <Button type="submit" variantColor="teal" onClick={submitPalette}>
+          <Button
+            type="submit"
+            variantColor="savColor.2"
+            onClick={submitPalette}
+          >
             Post dit palet!
           </Button>
         </Flex>

@@ -23,7 +23,7 @@ export default function Drawermenu() {
 
   return (
     <>
-      <Link as="button" ref={btnRef} variantColor="teal" onClick={onOpen}>
+      <Link as="button" ref={btnRef} variantColor="savColor.2" onClick={onOpen}>
         Login
       </Link>
       <Drawer
@@ -41,7 +41,7 @@ export default function Drawermenu() {
           <DrawerBody>
             {member ? <Login /> : <Signup />}
             <Text
-              color="teal.500"
+              color="savColor.2"
               as="button"
               onClick={(event) => setMember(!member)}
             >

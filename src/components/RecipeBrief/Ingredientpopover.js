@@ -12,10 +12,10 @@ import {
 
 export default function Ingredientpopover({ ingredients, id }) {
   const ingredientList = (
-    <List color="#5a6268">
+    <List color="savColor.5">
       {ingredients.map((i) => (
         <ListItem key={i.name}>
-          <ListIcon icon="chevron-right" color="green.500" />
+          <ListIcon icon="chevron-right" color="savColor.4" />
           {i.name}
         </ListItem>
       ))}
@@ -25,8 +25,8 @@ export default function Ingredientpopover({ ingredients, id }) {
   return (
     <Popover trigger="hover">
       <PopoverTrigger>
-        <Text pr={2} textAlign="right" fontSize="xs" color="#5a6268">
-          <ListIcon icon="chevron-right" color="green.500" /> ingrediënten
+        <Text pr={2} textAlign="right" fontSize="xs" color="savColor.5">
+          <ListIcon icon="chevron-right" color="savColor.4" /> ingrediënten
         </Text>
       </PopoverTrigger>
 

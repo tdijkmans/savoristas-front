@@ -26,7 +26,7 @@ export default function CreateRecipeButton() {
             </Box>
           </Box>
         </Grid>
-        <Box pt={3} px={3} fontWeight="semibold" color="green.600">
+        <Box pt={3} px={3} fontWeight="semibold" color="savColor.3">
           Creëer je eigen recept!
           <Divider p={2} />
         </Box>

@@ -19,17 +19,17 @@ export default function Filterresult({ filterResult }) {
                 p={2}
                 fontSize={50}
                 textAlign="center"
-                color="green.600"
+                color="savColor.3"
               >
                 {filterResult}
               </Box>
             </Box>
           </Grid>
-          <Box pt={3} px={3} fontWeight="semibold" color="green.600">
+          <Box pt={3} px={3} fontWeight="semibold" color="savColor.3">
             recepten voor dit palet.
             <Divider />
           </Box>
-          <Box pr={3} pl={3} color="#5a6268"></Box>
+          <Box pr={3} pl={3}></Box>
         </Box>
       }
     </Box>

@@ -2,14 +2,7 @@ import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  Divider,
-  Box,
-  Grid,
-  Flex,
-  Text,
-  CircularProgress,
-} from "@chakra-ui/core";
+import { Divider, Box, Flex, Text, CircularProgress } from "@chakra-ui/core";
 
 import RecipeBrief from "../../components/RecipeBrief";
 import Palette from "../../components/Palette";
@@ -40,7 +33,7 @@ export default function Homepage() {
   }, [dispatch]);
 
   const loader = (
-    <CircularProgress isIndeterminate color="green"></CircularProgress>
+    <CircularProgress isIndeterminate color="savColor.4"></CircularProgress>
   );
 
   const allRecipesList = recipes.length
@@ -60,26 +53,28 @@ export default function Homepage() {
     : loader;
 
   return (
-    <Box width="80%" marginLeft="auto" marginRight="auto" bg="#F7F3E7">
-      <Box>
-        <Text p={2} fontSize="4xl" color="#5a6268">
-          De laatste smaakpaletten
-        </Text>
+    <Box bg="savColor.1">
+      <Box width="80%" marginLeft="auto" marginRight="auto">
+        <Box>
+          <Text p={2} fontSize="4xl" color="savColor.5">
+            De laatste smaakpaletten
+          </Text>
 
-        <Flex wrap="wrap" justify="center">
-          {paletteList}
+          <Flex wrap="wrap" justify="center">
+            {paletteList}
 
-          {token && <CreatePaletteButton />}
-          <Filterresult filterResult={filterResult} />
-        </Flex>
-        <Divider />
-        <Text p={2} fontSize="4xl" color="#5a6268">
-          De laatste recepten
-        </Text>
-        <Grid templateColumns="repeat(4, 1fr)">
-          {recipesList}
-          {token && <CreateRecipeButton />}
-        </Grid>
+            {token && <CreatePaletteButton />}
+            <Filterresult filterResult={filterResult} />
+          </Flex>
+          <Divider />
+          <Text p={2} fontSize="4xl" color="savColor.5">
+            De laatste recepten
+          </Text>
+          <Flex wrap="wrap" justify="center">
+            {recipesList}
+            {token && <CreateRecipeButton />}
+          </Flex>
+        </Box>
       </Box>
     </Box>
   );

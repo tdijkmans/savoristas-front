@@ -26,7 +26,7 @@ export default function Login() {
 
   return (
     <Flex minHeight="50vh" align="center" justifyContent="center">
-      <Box padding={50} bg="teal.500">
+      <Box padding={50} bg="savColor.2">
         <form>
           <FormControl isRequired>
             <FormLabel htmlFor="email">Email address</FormLabel>

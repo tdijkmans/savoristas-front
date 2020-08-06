@@ -34,7 +34,8 @@ export default function RecipeDetailPage() {
     image,
     description,
     recipeIngredients,
-    recipeInstructions
+    recipeInstructions,
+    user
   } = recipe
 
   const ingredientList = recipeIngredients && (
@@ -43,7 +44,7 @@ export default function RecipeDetailPage() {
         <Box></Box>
         <List color="savColor.5">
           {recipeIngredients.map((i) => (
-            <ListItem key={i.name}>
+            <ListItem key={i.id}>
               <ListIcon icon="chevron-right" color="savColor.4" />
               {i.ingredientQuantity} {i.recipeIngredient}
             </ListItem>
@@ -105,6 +106,7 @@ export default function RecipeDetailPage() {
           <Box as={IoIosTimer} />
           <Text fontSize="xs">{cookTime}</Text>
           <Box as={IoIosPerson} />
+          {user ? user.name : null}
           <Text fontSize="xs">{recipeYield}</Text>
         </Grid>
       </Box>

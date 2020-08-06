@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react"
+import { useHistory } from "react-router-dom"
+import { useDispatch } from "react-redux"
 
-import { postRecipe } from "../../store/recipes/actions";
+import { postRecipe } from "../../store/recipes/actions"
 
 import {
   FormControl,
@@ -18,12 +18,12 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
   Select,
-  Divider,
-} from "@chakra-ui/core";
+  Divider
+} from "@chakra-ui/core"
 
-import RecipeDetailed from "../RecipeDetailed";
-import ListedIngredients from "./ListedIngredients";
-import ListIngredientForm from "./ListIngredientForm";
+import RecipeDetailed from "../RecipeDetailed"
+import ListedIngredients from "./ListedIngredients"
+import ListIngredientForm from "./ListIngredientForm"
 
 export default function CreateRecipeForm() {
   const initialRecipe = {
@@ -36,81 +36,83 @@ export default function CreateRecipeForm() {
     recipeInstructions:
       "Pureer met de staafmixer de basilicum met de pijnboompitten, knoflook en olijfolie glad. Rasp het geel van de schil van de citroen. Schep de citroenrasp met de kaas door de basilicumpasta. Breng de pesto op smaak met peper. Verwarm de oven voor tot 220 C. Snijd de zalmfilet horizontaal open als een boek (snijd de filet dus niet helemaal door!). Vouw de zalmfilet open en bestrijk de snijvlakken met de pesto. Rol de opengeslagen zalmfilet vanaf de brede kant als een rollade op. Rol de zalmrollade vervolgens in de hamplakjes. Bind de rollade vervolgens rondom vast met keukentouw, of zet de rollade vast met cocktailprikkers. Leg de rollade in de braadslede en bestrooi met peper naar smaak. Bak de zalmrollade in de voorverwarmde oven in 20-25 minuten bruin en vanbinnen rosé of naar wens gaar.",
     recipeIngredients: [
-      { ingredientQuantity: "2 stuks", name: "zalmfilet" },
-      { ingredientQuantity: "een bosje", name: "basilicum" },
-      { ingredientQuantity: "een bolletje", name: "knoflook" },
-      { ingredientQuantity: "100 ml", name: "olijfolie" },
-      { ingredientQuantity: "een hele", name: "citroen" },
-    ],
-  };
+      { ingredientQuantity: "2 stuks", spelling: "zalmfilet" },
+      { ingredientQuantity: "een bosje", spelling: "basilicum" },
+      { ingredientQuantity: "een bolletje", spelling: "knoflook" },
+      { ingredientQuantity: "100 ml", spelling: "olijfolie" },
+      { ingredientQuantity: "een hele", spelling: "citroen" }
+    ]
+  }
 
-  const [image, setImage] = useState(initialRecipe.image);
+  const [image, setImage] = useState(initialRecipe.image)
   function handleChangeImage(event) {
-    setImage(event.target.value);
+    setImage(event.target.value)
   }
 
-  const [name, setName] = useState(initialRecipe.name);
+  const [name, setName] = useState(initialRecipe.name)
   function handleChangeName(event) {
-    setName(event.target.value);
+    setName(event.target.value)
   }
 
-  const [description, setDescription] = useState(initialRecipe.description);
+  const [description, setDescription] = useState(initialRecipe.description)
   function handleChangeDescription(event) {
-    setDescription(event.target.value);
+    setDescription(event.target.value)
   }
 
   const [instructions, setInstructions] = useState(
     initialRecipe.recipeInstructions
-  );
+  )
   function handleChangeInstructions(event) {
-    setInstructions(event.target.value);
+    setInstructions(event.target.value)
   }
 
-  const [recipeYield, setRecipeYield] = useState(initialRecipe.recipeYield);
+  const [recipeYield, setRecipeYield] = useState(initialRecipe.recipeYield)
   function handleChangeRecipeYield(event) {
-    setRecipeYield(event);
+    setRecipeYield(event)
   }
 
-  const [cookTime, setCookTime] = useState(initialRecipe.cookTime);
+  const [cookTime, setCookTime] = useState(initialRecipe.cookTime)
   function handleChangeCookTime(event) {
-    setCookTime(event.target.value);
+    setCookTime(event.target.value)
   }
 
   const [recipeIngredientList, setRecipeIngredientList] = useState(
     initialRecipe.recipeIngredients
-  );
+  )
 
-  function removeThisIngredient(ingredientName) {
+  function removeThisIngredient(ingredientSpelling) {
     setRecipeIngredientList(
       recipeIngredientList.filter(function (ingredient) {
-        return ingredient.name !== ingredientName;
+        return ingredient.spelling !== ingredientSpelling
       })
-    );
+    )
   }
 
-  const [message, setMessage] = useState("");
-  function listThisIngredient(quantity, name) {
-    if (name === "") {
-      setMessage("Voer ajb een ingrediënt in.");
-    } else if (recipeIngredientList.some((i) => i.name === name) === true) {
-      setMessage("Voer ajb niet tweemaal hetzelfde ingrediënt in.");
+  const [message, setMessage] = useState("")
+  function listThisIngredient(quantity, spelling) {
+    if (spelling === "") {
+      setMessage("Voer ajb een ingrediënt in.")
+    } else if (
+      recipeIngredientList.some((i) => i.spelling === spelling) === true
+    ) {
+      setMessage("Voer ajb niet tweemaal hetzelfde ingrediënt in.")
     } else {
       setRecipeIngredientList([
         ...recipeIngredientList,
         {
           ingredientQuantity: quantity,
-          name: name,
-        },
-      ]);
-      setMessage("");
+          spelling: spelling
+        }
+      ])
+      setMessage("")
     }
   }
 
-  const history = useHistory();
-  const dispatch = useDispatch();
+  const history = useHistory()
+  const dispatch = useDispatch()
 
   function submitRecipe(event) {
-    event.preventDefault();
+    event.preventDefault()
 
     dispatch(
       postRecipe(
@@ -122,11 +124,11 @@ export default function CreateRecipeForm() {
         instructions,
         cookTime
       )
-    );
+    )
     // setName(initialPalette.name);
     // setDescription(initialPalette.description);
     // setIngredientList(initialPalette.ingredients);
-    history.push("/");
+    history.push("/")
   }
 
   const previewRecipe = {
@@ -136,8 +138,8 @@ export default function CreateRecipeForm() {
     image,
     description,
     recipeIngredients: recipeIngredientList,
-    recipeInstructions: instructions,
-  };
+    recipeInstructions: instructions
+  }
 
   return (
     <Flex>
@@ -239,5 +241,5 @@ export default function CreateRecipeForm() {
         <RecipeDetailed recipe={previewRecipe} />
       </Box>
     </Flex>
-  );
+  )
 }

@@ -1,9 +1,9 @@
-import React from "react";
+import React from "react"
 
-import { Grid, Image, Text, Box, Divider } from "@chakra-ui/core";
-import { IoIosTimer, IoIosPerson } from "react-icons/io";
+import { Grid, Image, Text, Box, Divider } from "@chakra-ui/core"
+import { IoIosTimer, IoIosPerson } from "react-icons/io"
 
-import Ingredientpopover from "./Ingredientpopover";
+import IngredientList from "./IngredientList"
 
 export default function RecipeBrief({ recipe }) {
   const {
@@ -12,11 +12,11 @@ export default function RecipeBrief({ recipe }) {
     name,
     image,
     description,
-    ingredients,
-    id,
-  } = recipe;
+    recipeIngredients,
+    id
+  } = recipe
 
-  const recipeUrl = `recipe/${id}`;
+  const recipeUrl = `recipe/${id}`
 
   return (
     <Box p={3} w="200px" as="a" href={recipeUrl}>
@@ -41,8 +41,8 @@ export default function RecipeBrief({ recipe }) {
         </Box>
 
         <Box>
-          <Ingredientpopover
-            ingredients={ingredients}
+          <IngredientList
+            ingredients={recipeIngredients}
             description={description}
             id={id}
           />
@@ -57,5 +57,5 @@ export default function RecipeBrief({ recipe }) {
         </Grid>
       </Box>
     </Box>
-  );
+  )
 }

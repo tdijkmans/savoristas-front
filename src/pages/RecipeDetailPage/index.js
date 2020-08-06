@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react"
+import { useParams } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
 
-import { fetchRecipe } from "../../store/detailedrecipe/actions";
-import { selectRecipe } from "../../store/detailedrecipe/selectors";
+import { fetchRecipe } from "../../store/detailedrecipe/actions"
+import { selectRecipe } from "../../store/detailedrecipe/selectors"
 
 import {
   Box,
@@ -13,19 +13,19 @@ import {
   ListIcon,
   Image,
   Divider,
-  Text,
-} from "@chakra-ui/core";
-import { IoIosTimer, IoIosPerson } from "react-icons/io";
+  Text
+} from "@chakra-ui/core"
+import { IoIosTimer, IoIosPerson } from "react-icons/io"
 
 export default function RecipeDetailPage() {
-  const { id } = useParams();
-  const dispatch = useDispatch();
+  const { id } = useParams()
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchRecipe(id));
-  }, [dispatch, id]);
+    dispatch(fetchRecipe(id))
+  }, [dispatch, id])
 
-  const recipe = useSelector(selectRecipe);
+  const recipe = useSelector(selectRecipe)
 
   const {
     cookTime,
@@ -33,25 +33,25 @@ export default function RecipeDetailPage() {
     name,
     image,
     description,
-    ingredients,
-    recipeInstructions,
-  } = recipe;
+    recipeIngredients,
+    recipeInstructions
+  } = recipe
 
-  const ingredientList = ingredients && (
+  const ingredientList = recipeIngredients && (
     <Box>
       <Grid templateColumns="1fr 5fr">
         <Box></Box>
         <List color="savColor.5">
-          {ingredients.map((i) => (
+          {recipeIngredients.map((i) => (
             <ListItem key={i.name}>
               <ListIcon icon="chevron-right" color="savColor.4" />
-              {i.recipeIngredients.ingredientQuantity} {i.name}
+              {i.ingredientQuantity} {i.recipeIngredient}
             </ListItem>
           ))}
         </List>
       </Grid>
     </Box>
-  );
+  )
 
   const instructions = recipeInstructions && (
     <Box pr={3}>
@@ -67,7 +67,7 @@ export default function RecipeDetailPage() {
         </List>
       </Grid>
     </Box>
-  );
+  )
 
   return (
     <Box p={3} w="50%" marginLeft="auto" marginRight="auto">
@@ -109,5 +109,5 @@ export default function RecipeDetailPage() {
         </Grid>
       </Box>
     </Box>
-  );
+  )
 }

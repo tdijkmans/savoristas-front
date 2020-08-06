@@ -1,56 +1,56 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux"
 
-import { Divider, Box, Flex, Text, CircularProgress } from "@chakra-ui/core";
+import { Divider, Box, Flex, Text, CircularProgress } from "@chakra-ui/core"
 
-import RecipeBrief from "../../components/RecipeBrief";
-import Palette from "../../components/Palette";
-import CreatePaletteButton from "../../components/CreatePaletteButton";
-import CreateRecipeButton from "../../components/CreateRecipeButton";
-import Filterresult from "../../components/FilterResult";
+import RecipeBrief from "../../components/RecipeBrief"
+import Palette from "../../components/Palette"
+import CreatePaletteButton from "../../components/CreatePaletteButton"
+import CreateRecipeButton from "../../components/CreateRecipeButton"
+import Filterresult from "../../components/FilterResult"
 
-import { fetchPalettes } from "../../store/palettes/actions";
-import { fetchRecipes } from "../../store/recipes/actions";
+import { fetchPalettes } from "../../store/palettes/actions"
+import { fetchRecipes } from "../../store/recipes/actions"
 
-import { selectToken } from "../../store/user/selectors";
-import { selectPalettes } from "../../store/palettes/selectors";
-import { selectRecipes } from "../../store/recipes/selectors";
-import { selectFilteredRecipes } from "../../store/filteredrecipes/selectors";
+import { selectToken } from "../../store/user/selectors"
+import { selectPalettes } from "../../store/palettes/selectors"
+import { selectRecipes } from "../../store/recipes/selectors"
+import { selectFilteredRecipes } from "../../store/filteredrecipes/selectors"
 
 export default function Homepage() {
-  const dispatch = useDispatch();
-  const token = useSelector(selectToken);
-  const palettes = useSelector(selectPalettes);
-  const recipes = useSelector(selectRecipes);
+  const dispatch = useDispatch()
+  const token = useSelector(selectToken)
+  const palettes = useSelector(selectPalettes)
+  const recipes = useSelector(selectRecipes)
 
-  const filteredRecipes = useSelector(selectFilteredRecipes);
-  const filterResult = filteredRecipes && filteredRecipes.length;
+  const filteredRecipes = useSelector(selectFilteredRecipes)
+  const filterResult = filteredRecipes && filteredRecipes.length
 
   useEffect(() => {
-    dispatch(fetchPalettes());
-    dispatch(fetchRecipes());
-  }, [dispatch]);
+    dispatch(fetchPalettes())
+    dispatch(fetchRecipes())
+  }, [dispatch])
 
   const loader = (
     <CircularProgress isIndeterminate color="savColor.4"></CircularProgress>
-  );
+  )
 
   const allRecipesList = recipes.length
     ? recipes.map((recipe) => <RecipeBrief key={recipe.id} recipe={recipe} />)
-    : loader;
+    : loader
 
   const recipesList = filteredRecipes.length
     ? filteredRecipes.map((recipe) => (
         <RecipeBrief key={recipe.id} recipe={recipe} />
       ))
-    : allRecipesList;
+    : allRecipesList
 
   const paletteList = palettes.length
     ? palettes.map((palette) => (
         <Palette key={palette.id} foodPalette={palette} />
       ))
-    : loader;
+    : loader
 
   return (
     <Box bg="savColor.1">
@@ -77,5 +77,5 @@ export default function Homepage() {
         </Box>
       </Box>
     </Box>
-  );
+  )
 }

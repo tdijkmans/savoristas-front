@@ -1,42 +1,42 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
-import { Box, Divider, Text } from "@chakra-ui/core";
+import { Box, Divider, Text } from "@chakra-ui/core"
 
-import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux"
 
-import { fetchRecipesByPalette } from "../../store/filteredrecipes/actions";
-import { clearPaletteFilter } from "../../store/filteredrecipes/actions";
+import { fetchRecipesByPalette } from "../../store/filteredrecipes/actions"
+import { clearPaletteFilter } from "../../store/filteredrecipes/actions"
 
-import contrastText from "./contrastText";
+import contrastText from "./contrastText"
 
 export default function Palette({ foodPalette }) {
-  const [recipeToggle, setRecipeToggle] = useState("");
-  const dispatch = useDispatch();
+  const [recipeToggle, setRecipeToggle] = useState("")
+  const dispatch = useDispatch()
 
   function filterRecipes(ingredients) {
-    const ingredientList = ingredients.map((i) => i.id);
-    dispatch(fetchRecipesByPalette(ingredientList));
+    const ingredientList = ingredients.map((i) => i.id)
+    dispatch(fetchRecipesByPalette(ingredientList))
   }
 
   function clearFilter() {
-    dispatch(clearPaletteFilter());
+    dispatch(clearPaletteFilter())
   }
 
   function toggleFilter(foodPalette) {
     if (recipeToggle === "") {
-      setRecipeToggle("savColor.3");
-      filterRecipes(foodPalette.ingredients);
+      setRecipeToggle("savColor.3")
+      filterRecipes(foodPalette.ingredients)
     } else {
-      setRecipeToggle("");
-      clearFilter();
+      setRecipeToggle("")
+      clearFilter()
     }
   }
 
-  const coloredIngredients = foodPalette.ingredients.map((i) => ({
+  const coloredIngredients = foodPalette.paletteIngredients.map((i) => ({
     id: i.id,
-    name: i.name,
-    hexColor: i.paletteIngredients.hexColor,
-  }));
+    name: i.ingredientSpelling.spelling,
+    hexColor: i.hexColor
+  }))
 
   const ingredientSwatches = coloredIngredients.map((i) => (
     <Box key={i.id} bg={i.hexColor} w={200} overflow="hidden">
@@ -51,7 +51,7 @@ export default function Palette({ foodPalette }) {
         {i.name}
       </Text>
     </Box>
-  ));
+  ))
 
   return (
     <Box>
@@ -112,5 +112,5 @@ export default function Palette({ foodPalette }) {
         </Box>
       </Box>
     </Box>
-  );
+  )
 }

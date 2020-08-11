@@ -42,7 +42,7 @@ export default function RecipeBrief({ recipe }) {
 
         <Box>
           <IngredientList
-            ingredients={recipeIngredients}
+            recipeIngredients={recipeIngredients}
             description={description}
             id={id}
           />

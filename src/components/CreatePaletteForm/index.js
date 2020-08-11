@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import InputColor from "react-input-color";
-import { postPalette } from "../../store/palettes/actions";
+import React, { useState } from "react"
+import InputColor from "react-input-color"
+import { postPalette } from "../../store/palettes/actions"
 
 import {
   FormControl,
@@ -12,11 +12,11 @@ import {
   Input,
   Divider,
   Grid,
-  Flex,
-} from "@chakra-ui/core";
+  Flex
+} from "@chakra-ui/core"
 
-import Palette from "../Palette";
-import { useDispatch } from "react-redux";
+import PalettePreview from "./PalettePreview"
+import { useDispatch } from "react-redux"
 
 export default function CreatePaletteForm() {
   const initialPalette = {
@@ -24,38 +24,38 @@ export default function CreatePaletteForm() {
     description: "Voor als het buiten vriest.",
     ingredients: [
       { name: "Tijm", hexColor: "#43A047" },
-      { name: "Honing", hexColor: "#FDD835" },
-    ],
-  };
-  const [name, setName] = useState(initialPalette.name);
-  const [description, setDescription] = useState(initialPalette.description);
-  const [color, setColor] = useState({});
-  const [ingredient, setIngredient] = useState("");
+      { name: "Honing", hexColor: "#FDD835" }
+    ]
+  }
+  const [name, setName] = useState(initialPalette.name)
+  const [description, setDescription] = useState(initialPalette.description)
+  const [color, setColor] = useState({})
+  const [ingredient, setIngredient] = useState("")
   const [ingredientList, setIngredientList] = useState(
     initialPalette.ingredients
-  );
-  const [message, setMessage] = useState("");
+  )
+  const [message, setMessage] = useState("")
 
   // Validate inputs (not empty, unique) and add ingredient with color to ingredient list.
   function listThisIngredient(event) {
     if (ingredient === "") {
-      setMessage("Voeg alsjeblieft een ingrediënt toe.");
+      setMessage("Voeg alsjeblieft een ingrediënt toe.")
     } else if (ingredientList.some((i) => i.name === ingredient) === true) {
-      setMessage("Voeg alsjeblieft niet tweemaal hetzelfde ingrediënt toe.");
+      setMessage("Voeg alsjeblieft niet tweemaal hetzelfde ingrediënt toe.")
     } else {
       setIngredientList([
         ...ingredientList,
-        { name: ingredient, hexColor: color.hex },
-      ]);
-      setIngredient("");
-      setMessage("");
+        { name: ingredient, hexColor: color.hex }
+      ])
+      setIngredient("")
+      setMessage("")
     }
   }
 
   function removeThisIngredient(name) {
     setIngredientList(
       ingredientList.filter((ingredient) => ingredient.name !== name)
-    );
+    )
   }
 
   const succesMessage = (
@@ -69,23 +69,23 @@ export default function CreatePaletteForm() {
         .
       </Box>
     </Box>
-  );
+  )
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   function submitPalette(event) {
-    event.preventDefault();
+    event.preventDefault()
 
     if (ingredientList.length === 0) {
-      setMessage("Voeg alsjeblieft minimaal 1 ingrediënt toe.");
+      setMessage("Voeg alsjeblieft minimaal 1 ingrediënt toe.")
     } else if (ingredientList.length > 5) {
-      setMessage("Voeg alsjeblieft maximaal 5 ingrediënten toe.");
+      setMessage("Voeg alsjeblieft maximaal 5 ingrediënten toe.")
     } else {
-      dispatch(postPalette(name, description, ingredientList));
-      setName(initialPalette.name);
-      setDescription(initialPalette.description);
-      setIngredientList(initialPalette.ingredients);
-      setMessage(succesMessage);
+      dispatch(postPalette(name, description, ingredientList))
+      setName(initialPalette.name)
+      setDescription(initialPalette.description)
+      setIngredientList(initialPalette.ingredients)
+      setMessage(succesMessage)
     }
   }
 
@@ -93,13 +93,13 @@ export default function CreatePaletteForm() {
   const convertedForPreview = ingredientList.map((i) => ({
     id: i.name,
     name: i.name,
-    paletteIngredients: { hexColor: i.hexColor },
-  }));
-  const foodPalette = {
+    hexColor: i.hexColor
+  }))
+  const previewPalette = {
     name: name,
     description: description,
-    ingredients: convertedForPreview,
-  };
+    ingredients: convertedForPreview
+  }
 
   const listedIngredients = ingredientList.map((i) => (
     <FormControl key={i.name} p={1} isReadOnly>
@@ -120,12 +120,12 @@ export default function CreatePaletteForm() {
         />
       </Grid>
     </FormControl>
-  ));
+  ))
 
   return (
     <Box width="50%" marginLeft="auto" marginRight="auto">
       <Box width="80%" marginLeft="auto" marginRight="auto">
-        <Palette foodPalette={foodPalette} />
+        <PalettePreview palette={previewPalette} />
       </Box>
       <Divider p={5} />
       <FormControl isRequired type="submit">
@@ -181,15 +181,11 @@ export default function CreatePaletteForm() {
         <Divider p={3} />
 
         <Flex justifyContent="center" mt={5}>
-          <Button
-            type="submit"
-            variantColor="savColor.2"
-            onClick={submitPalette}
-          >
+          <Button type="submit" color="savColor.5" onClick={submitPalette}>
             Post dit palet!
           </Button>
         </Flex>
       </FormControl>
     </Box>
-  );
+  )
 }

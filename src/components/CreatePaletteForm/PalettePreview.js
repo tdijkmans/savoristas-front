@@ -2,41 +2,15 @@ import React, { useState } from "react"
 
 import { Box, Text } from "@chakra-ui/core"
 
-import { useDispatch } from "react-redux"
+import contrastText from "../Palette/contrastText"
 
-import { fetchRecipesByPalette } from "../../store/filteredrecipes/actions"
-import { clearPaletteFilter } from "../../store/filteredrecipes/actions"
+export default function PalettePreview({ palette }) {
+  const { name, description, ingredients } = palette
 
-import contrastText from "./contrastText"
+  console.log(name, description, ingredients)
 
-export default function Palette({ palette }) {
-  console.log(palette)
-  const { name, user, paletteIngredients, description } = palette
-  const [recipeToggle, setRecipeToggle] = useState("")
-  const dispatch = useDispatch()
-
-  function filterRecipes(ingredients) {
-    const ingredientList = ingredients.map((i) => i.ingredientId)
-    dispatch(fetchRecipesByPalette(ingredientList))
-    console.log(ingredientList)
-  }
-
-  function clearFilter() {
-    dispatch(clearPaletteFilter())
-  }
-
-  function toggleFilter(palette) {
-    if (recipeToggle === "") {
-      setRecipeToggle("savColor.3")
-      filterRecipes(paletteIngredients)
-    } else {
-      setRecipeToggle("")
-      clearFilter()
-    }
-  }
-
-  const ingredientSwatches = paletteIngredients.map((i) => (
-    <Box key={i.id} bg={i.hexColor} w={200} overflow="hidden">
+  const ingredientSwatches = ingredients.map((i) => (
+    <Box key={i.id} bg={i.hexColor} overflow="hidden">
       <Text
         p={2}
         fontSize="xs"
@@ -45,20 +19,14 @@ export default function Palette({ palette }) {
         textAlign="center"
         color={contrastText(i.hexColor)}
       >
-        {i.ingredientSpelling}
+        {i.name}
       </Text>
     </Box>
   ))
 
   return (
     <Box>
-      <Box
-        p={3}
-        bg={recipeToggle}
-        onClick={() => toggleFilter(paletteIngredients)}
-        as="button"
-        borderRadius="4px"
-      >
+      <Box p={3} as="button" borderRadius="4px">
         <Box
           px={1}
           pt={1}
@@ -101,9 +69,7 @@ export default function Palette({ palette }) {
             boxShadow="md"
           >
             <Box pl={3}>
-              <Text color="savColor.5" fontSize="xs" textAlign="left">
-                {user.name}
-              </Text>
+              <Text color="savColor.5" fontSize="xs" textAlign="left"></Text>
             </Box>
           </Box>
         </Box>

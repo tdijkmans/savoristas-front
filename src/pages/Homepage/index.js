@@ -47,9 +47,7 @@ export default function Homepage() {
     : allRecipesList
 
   const paletteList = palettes.length
-    ? palettes.map((palette) => (
-        <Palette key={palette.id} foodPalette={palette} />
-      ))
+    ? palettes.map((palette) => <Palette key={palette.id} palette={palette} />)
     : loader
 
   return (

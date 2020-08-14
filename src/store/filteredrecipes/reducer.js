@@ -1,18 +1,22 @@
 import {
   FETCH_RECIPES_BY_PALETTE_SUCCESS,
-  CLEAR_PALETTE_FILTER,
-} from "./actions";
+  CLEAR_PALETTE_FILTER
+} from "./actions"
 
-const initialState = [];
+const initialState = []
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_RECIPES_BY_PALETTE_SUCCESS:
-      return [...action.payload];
+      if (action.payload) {
+        return [...action.payload]
+      } else {
+        return state
+      }
     case CLEAR_PALETTE_FILTER: {
-      return [];
+      return []
     }
     default:
-      return state;
+      return state
   }
-};
+}

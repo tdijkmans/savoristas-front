@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import InputColor from "react-input-color"
+import { SimpleAutocomplete } from "@opuscapita/react-autocompletes"
 import { postPalette } from "../../store/palettes/actions"
 
 import {
@@ -18,7 +19,7 @@ import {
 import PalettePreview from "./PalettePreview"
 import { useDispatch } from "react-redux"
 
-export default function CreatePaletteForm() {
+export default function CreatePaletteForm({ items }) {
   const initialPalette = {
     name: "In De Winter",
     description: "Voor als het buiten vriest.",
@@ -151,24 +152,37 @@ export default function CreatePaletteForm() {
 
         <FormControl p={1}>
           <Grid templateColumns="1fr 4fr 1fr">
+            {/* 5 is currently the max number of ingredients to make a palette for */}
             {ingredientList.length < 5 && (
               <>
                 <Box display="flex" alignItems="center" justifyContent="center">
                   <InputColor
-                    initialValue="savColor.5"
+                    initialValue="#f0eded"
                     onChange={setColor}
                     name="hexColor"
                   />
                 </Box>
 
-                <Input
+                {/* <Input
                   id="Ingredient"
                   name="name"
                   placeholder="Voeg een ingrediënt toe"
                   value={ingredient}
                   onChange={(e) => setIngredient(e.target.value)}
+                /> */}
+                <SimpleAutocomplete
+                  id="Ingredient"
+                  name="name"
+                  placeholder="Voeg een ingrediënt toe"
+                  onSelect={(event, key) => setIngredient(key)}
+                  onChange={(event, string) => setIngredient(string)}
+                  origin="bottom"
+                  inputElement={(props) => (
+                    <input {...props} className="form-control" />
+                  )}
+                  items={items}
+                  value={ingredient}
                 />
-
                 <IconButton onClick={listThisIngredient} icon="small-add" />
               </>
             )}

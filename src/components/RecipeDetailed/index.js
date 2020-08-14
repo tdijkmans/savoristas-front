@@ -1,12 +1,12 @@
-import React from "react";
+import React from "react"
 
-import { Box, Divider } from "@chakra-ui/core";
-import { Grid } from "@chakra-ui/core";
-import { Image } from "@chakra-ui/core";
-import { Text } from "@chakra-ui/core";
-import { List, ListItem, ListIcon } from "@chakra-ui/core";
+import { Box, Divider } from "@chakra-ui/core"
+import { Grid } from "@chakra-ui/core"
+import { Image } from "@chakra-ui/core"
+import { Text } from "@chakra-ui/core"
+import { List, ListItem, ListIcon } from "@chakra-ui/core"
 
-import { IoIosTimer, IoIosPerson } from "react-icons/io";
+import { IoIosTimer, IoIosPerson } from "react-icons/io"
 
 export default function RecipeDetailed({ recipe }) {
   const {
@@ -16,8 +16,8 @@ export default function RecipeDetailed({ recipe }) {
     image,
     description,
     recipeIngredients,
-    recipeInstructions,
-  } = recipe;
+    recipeInstructions
+  } = recipe
 
   const ingredientList = (
     <Box>
@@ -25,31 +25,17 @@ export default function RecipeDetailed({ recipe }) {
         <Box></Box>
         <List color="savColor.5">
           {recipeIngredients.map((i) => (
-            <ListItem key={i.name}>
+            <ListItem key={i.spelling}>
               <ListIcon icon="chevron-right" color="savColor.4" />
-              {i.ingredientQuantity} {i.name}
+              {i.ingredientQuantity} {i.spelling}
             </ListItem>
           ))}
         </List>
       </Grid>
     </Box>
-  );
+  )
 
-  const instructions = (
-    <Box pr={3}>
-      <Grid templateColumns="1fr 14fr">
-        <Box></Box>
-        <List as="ol" color="savColor.5" fontSize="sm">
-          {recipeInstructions.split(". ").map((i) => (
-            <ListItem key={i}>
-              <ListIcon icon="chevron-right" color="savColor.4" />
-              {i}
-            </ListItem>
-          ))}
-        </List>
-      </Grid>
-    </Box>
-  );
+  const instructions = <Box p={10}>{recipeInstructions}</Box>
 
   return (
     <Box p={3}>
@@ -63,18 +49,11 @@ export default function RecipeDetailed({ recipe }) {
         bg="white"
         borderRadius="4px"
       >
-        <Box pt={3} px={3} fontWeight="semibold" color="savColor.3">
+        <Box pt={3} px={10} fontWeight="semibold" color="savColor.3">
           {name}
         </Box>
 
-        <Box
-          pt={1}
-          pr={3}
-          pl={3}
-          fontSize="sm"
-          fontStyle="italic"
-          color="savColor.5"
-        >
+        <Box pt={1} pl={10} fontSize="sm" fontStyle="italic" color="savColor.5">
           {description}
         </Box>
         <Divider />
@@ -91,5 +70,5 @@ export default function RecipeDetailed({ recipe }) {
         </Grid>
       </Box>
     </Box>
-  );
+  )
 }

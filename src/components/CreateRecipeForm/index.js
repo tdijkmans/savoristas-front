@@ -33,8 +33,12 @@ export default function CreateRecipeForm() {
     cookTime: "PT50M",
     image:
       "https://static-images.jumbo.com/product_images/Recipe_502710-01_560x560.jpg",
-    recipeInstructions:
-      "Pureer met de staafmixer de basilicum met de pijnboompitten, knoflook en olijfolie glad. Rasp het geel van de schil van de citroen. Schep de citroenrasp met de kaas door de basilicumpasta. Breng de pesto op smaak met peper. Verwarm de oven voor tot 220 C. Snijd de zalmfilet horizontaal open als een boek (snijd de filet dus niet helemaal door!). Vouw de zalmfilet open en bestrijk de snijvlakken met de pesto. Rol de opengeslagen zalmfilet vanaf de brede kant als een rollade op. Rol de zalmrollade vervolgens in de hamplakjes. Bind de rollade vervolgens rondom vast met keukentouw, of zet de rollade vast met cocktailprikkers. Leg de rollade in de braadslede en bestrooi met peper naar smaak. Bak de zalmrollade in de voorverwarmde oven in 20-25 minuten bruin en vanbinnen rosé of naar wens gaar.",
+    recipeInstructions: [
+      "Pureer met de staafmixer de basilicum met de pijnboompitten, knoflook en olijfolie glad. Rasp het geel van de schil van de citroen. Schep de citroenrasp met de kaas door de basilicumpasta. Breng de pesto op smaak met peper.",
+      "Verwarm de oven voor tot 220 ?C. Snijd de zalmfilet horizontaal open als een boek (snijd de filet dus niet helemaal door!). Vouw de zalmfilet open en bestrijk de snijvlakken met de pesto.",
+      "Rol de opengeslagen zalmfilet vanaf de brede kant als een rollade op. Rol de zalmrollade vervolgens in de hamplakjes. Bind de rollade vervolgens rondom vast met keukentouw, of zet de rollade vast met cocktailprikkers. Leg de rollade in de braadslede en bestrooi met peper naar smaak.",
+      "Bak de zalmrollade in de voorverwarmde oven in 20-25 min. bruin en vanbinnen rosé of naar wens gaar."
+    ],
     recipeIngredients: [
       { ingredientQuantity: "2 stuks", spelling: "zalmfilet" },
       { ingredientQuantity: "een bosje", spelling: "basilicum" },

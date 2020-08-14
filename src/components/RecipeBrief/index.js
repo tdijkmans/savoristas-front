@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Grid, Image, Text, Box, Divider } from "@chakra-ui/core"
+import { Grid, Image, Text, Box } from "@chakra-ui/core"
 import { IoIosTimer, IoIosPerson } from "react-icons/io"
 
 import IngredientList from "./IngredientList"
@@ -19,7 +19,7 @@ export default function RecipeBrief({ recipe }) {
   const recipeUrl = `recipe/${id}`
 
   return (
-    <Box p={3} w="200px" as="a" href={recipeUrl}>
+    <Box p={3} w="300px" as="a" href={recipeUrl}>
       <Image src={image} alt={name} />
 
       <Box
@@ -27,7 +27,7 @@ export default function RecipeBrief({ recipe }) {
         minH="120px"
         borderWidth="1px"
         boxShadow="md"
-        bg="white"
+        bg="savColor.cardMain"
         borderRadius="4px"
       >
         <Box
@@ -48,8 +48,8 @@ export default function RecipeBrief({ recipe }) {
           />
         </Box>
 
-        <Divider />
-        <Grid p={2} templateColumns="repeat(4, 1fr)">
+        {/* <Divider /> */}
+        <Grid bg="savColor.cardFooter" p={2} templateColumns="repeat(4, 1fr)">
           <Box as={IoIosTimer} />
           <Text fontSize="xs">{cookTime}</Text>
           <Box as={IoIosPerson} />

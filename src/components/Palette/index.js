@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 
 import { Box, Text } from "@chakra-ui/core"
+import { Avatar } from "@chakra-ui/core"
 
 import { useDispatch } from "react-redux"
 
@@ -35,12 +36,19 @@ export default function Palette({ palette }) {
     }
   }
 
+  const minMainCardHeight = 210
+
   const ingredientSwatches = paletteIngredients.map((i) => (
-    <Box key={i.id} bg={i.hexColor} w={200} overflow="hidden">
+    <Box
+      key={i.id}
+      bg={i.hexColor}
+      overflow="hidden"
+      h={minMainCardHeight / paletteIngredients.length}
+    >
       <Text
-        p={2}
+        pt={2}
         fontSize="xs"
-        textTransform="uppercase"
+        // textTransform="uppercase"
         letterSpacing={1}
         textAlign="center"
         color={contrastText(i.hexColor)}
@@ -60,10 +68,12 @@ export default function Palette({ palette }) {
         borderRadius="4px"
       >
         <Box
+          minH={minMainCardHeight}
+          w={250}
           px={1}
           pt={1}
           boxShadow="md"
-          bg="white"
+          bg="savColor.cardMain"
           borderTopLeftRadius="4px"
           borderTopRightRadius="4px"
         >
@@ -77,7 +87,7 @@ export default function Palette({ palette }) {
         </Box>
 
         <Box>
-          <Box bg="white" boxShadow="md">
+          <Box bg="savColor.cardFooter" boxShadow="md">
             <Text
               pl={3}
               py={1}
@@ -88,22 +98,25 @@ export default function Palette({ palette }) {
               fontWeight="bold"
             >
               {name}
-              <Box w="200px" color="savColor.5" fontSize="xs" textAlign="left">
+              <Text
+                color="savColor.5"
+                fontSize="xs"
+                textAlign="left"
+                isTruncated
+                maxWidth={200}
+              >
                 {description}
-              </Box>
-            </Text>
-          </Box>
-
-          <Box
-            bg="white"
-            borderBottomLeftRadius="4px"
-            borderBottomRightRadius="4px"
-            boxShadow="md"
-          >
-            <Box pl={3}>
-              <Text color="savColor.5" fontSize="xs" textAlign="left">
-                {user.name}
               </Text>
+            </Text>
+            <Box>
+              <Avatar
+                float="right"
+                name={user.name}
+                src={user.image}
+                size="xs"
+                bg="savColor.2"
+                color="savColor.5"
+              ></Avatar>
             </Box>
           </Box>
         </Box>

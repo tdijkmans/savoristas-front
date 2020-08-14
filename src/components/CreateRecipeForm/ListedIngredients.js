@@ -1,13 +1,13 @@
-import React from "react";
+import React from "react"
 
-import { FormControl, Box, IconButton, Input, Grid } from "@chakra-ui/core";
+import { FormControl, Box, IconButton, Input, Grid } from "@chakra-ui/core"
 
 export default function ListedIngredients({
   recipeIngredientList,
-  removeThisIngredient,
+  removeThisIngredient
 }) {
   const listedRecipeIngredients = recipeIngredientList.map((i, index) => (
-    <FormControl key={i.name} isReadOnly>
+    <FormControl key={i.spelling} isReadOnly>
       <Grid templateColumns="1fr 3fr 5fr 1fr">
         <Box></Box>
         <Box display="flex" alignItems="center" justifyContent="center">
@@ -19,10 +19,10 @@ export default function ListedIngredients({
           />
         </Box>
         <Input
-          key={i.name}
-          id={i.name}
-          name="name"
-          value={i.name}
+          key={i.spelling}
+          id={i.spelling}
+          name="spelling"
+          value={i.spelling}
           border="none"
         />
         <IconButton
@@ -32,6 +32,6 @@ export default function ListedIngredients({
         />
       </Grid>
     </FormControl>
-  ));
-  return <>{listedRecipeIngredients}</>;
+  ))
+  return <>{listedRecipeIngredients}</>
 }

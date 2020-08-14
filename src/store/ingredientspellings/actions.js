@@ -1,6 +1,5 @@
 import { apiUrl } from "../../config/constants"
 import axios from "axios"
-import { selectUser } from "../user/selectors"
 
 export const FETCH_SPELLINGS_SUCCESS = "FETCH_SPELLINGS_SUCCESS"
 

@@ -3,14 +3,18 @@ import { useDispatch, useSelector } from "react-redux"
 
 import CreatePaletteForm from "../../components/CreatePaletteForm"
 
-import { Box, Text, List } from "@chakra-ui/core"
+import { Box, Text } from "@chakra-ui/core"
 
 import { fetchSpellings } from "../../store/ingredientspellings/actions"
 import { selectIngredientSpellings } from "../../store/ingredientspellings/selectors"
 
 export default function CreatePalettePage() {
   const dispatch = useDispatch()
-  const availableIngredients = useSelector(selectIngredientSpellings)
+  // const availableIngredients = useSelector(selectIngredientSpellings)
+  const items = useSelector(selectIngredientSpellings).map((i) => ({
+    key: i.spelling,
+    value: i.spelling
+  }))
 
   useEffect(() => {
     dispatch(fetchSpellings())
@@ -22,13 +26,7 @@ export default function CreatePalettePage() {
         <Text p={2} fontSize="4xl" color="savColor.5">
           Post je eigen palet.
         </Text>
-        <CreatePaletteForm />
-        LET'S USE BLEOW FOR INPUT:
-        <List>
-          {availableIngredients.map((i) => (
-            <li key={i.id}>{i.spelling}</li>
-          ))}
-        </List>
+        <CreatePaletteForm items={items} />
       </Box>
     </Box>
   )

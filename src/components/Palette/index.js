@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 
 import { Box, Text } from "@chakra-ui/core"
-import { Avatar } from "@chakra-ui/core"
 
 import { useDispatch } from "react-redux"
 
@@ -9,6 +8,7 @@ import { fetchRecipesByPalette } from "../../store/filteredrecipes/actions"
 import { clearPaletteFilter } from "../../store/filteredrecipes/actions"
 
 import contrastText from "./contrastText"
+import PaletteFooter from "./PaletteFooter"
 
 export default function Palette({ palette }) {
   console.log(palette)
@@ -108,19 +108,10 @@ export default function Palette({ palette }) {
                 {description}
               </Text>
             </Text>
-            <Box>
-              <Avatar
-                float="right"
-                name={user.name}
-                src={user.image}
-                size="xs"
-                bg="savColor.2"
-                color="savColor.5"
-              ></Avatar>
-            </Box>
           </Box>
         </Box>
       </Box>
+      <PaletteFooter user={user} />
     </Box>
   )
 }

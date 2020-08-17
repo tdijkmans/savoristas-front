@@ -10,7 +10,7 @@ export default function PaletteFooter({ user }) {
       fontSize="xs"
       justifyContent="flex"
       px={3}
-      justifyContent="space-between"
+      // justifyContent="space-between"
     >
       <Flex align="center">
         <Avatar

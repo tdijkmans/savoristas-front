@@ -9,7 +9,7 @@ export default function RecipeFooter({ user }) {
       py={3}
       fontSize="xs"
       justifyContent="flex"
-      justifyContent="space-between"
+      // justifyContent="space-between"
     >
       <Flex align="center">
         <Avatar
